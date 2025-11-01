@@ -22,11 +22,11 @@
     }
 
     .nav a:hover {
-        background: #1f2937
+        background: var(--brand-light)
     }
 
     .nav a.active {
-        background: #0d4ea6
+        background: var(--brand)
     }
 
     main {

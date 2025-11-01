@@ -1,11 +1,13 @@
 :root {
-    --bg: #f7f9fb;
+    --bg: #f7faff;
     --card: #ffffff;
     --ink: #0f172a;
     --muted: #64748b;
-    --brand: #0d4ea6;
-    --surface: #e5e7eb;
-    --chip: #eef2f7;
+    --brand: #276baf;
+    --brand-light: #4e8ab0;
+    --brand-hover: #5ba8e1;
+    --surface: #e8f0fb;
+    --chip: #edf2fb;
     --radius: 14px;
     --shadow: 0 2px 10px rgba(0, 0, 0, .08);
 }
@@ -51,7 +53,7 @@ button {
     align-items: center;
     gap: .75rem;
     padding: .75rem 1rem;
-    background: #0b1220;
+    background: var(--brand);
     color: #fff;
 }
 
@@ -73,7 +75,7 @@ button {
 
 .menu {
     margin-left: auto;
-    border: 1px solid #334155;
+    border: 1px solid rgba(255, 255, 255, .35);
     background: transparent;
     color: #fff;
     padding: .45rem .7rem;
@@ -101,16 +103,16 @@ button {
     display: block;
     padding: .7rem .85rem;
     color: #fff;
-    border-top: 1px solid #334155;
+    border-top: 1px solid rgba(255, 255, 255, .25);
     transition: background-color .15s ease;
 }
 
 .nav a:hover {
-    background: #334155
+    background: var(--brand-light)
 }
 
 .nav a.active {
-    background: #1f2937;
+    background: var(--brand);
     font-weight: 600
 }
 
@@ -136,7 +138,7 @@ h1 {
     margin: -1rem -1rem 1rem;
     padding: .65rem .95rem;
     border-radius: var(--radius) var(--radius) 0 0;
-    background: #111827;
+    background: var(--brand);
     color: #fff;
     font-size: 1rem;
     letter-spacing: .2px;
@@ -166,6 +168,12 @@ h1 {
     background: var(--chip);
     color: #334155;
     cursor: pointer;
+    transition: background .2s;
+}
+
+.chip:hover {
+    background: var(--brand-hover);
+    color: #fff
 }
 
 .chip.active {
@@ -191,10 +199,11 @@ h1 {
 
 .course-card .tag {
     font-size: .8rem;
-    background: #2563eb;
+    background: var(--brand-light);
     color: #fff;
-    padding: .2rem .5rem;
-    border-radius: 6px
+    padding: .2rem .6rem;
+    border-radius: 6px;
+    font-weight: 600;
 }
 
 .credits {
