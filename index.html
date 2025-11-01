@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Home page for David Canales — WDD 231 Web Frontend Development I">
+    <meta name="author" content="David Canales">
+    <title>David Canales • WDD 231 Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <img src="images/logo.svg" alt="Site logo" width="40" height="40">
+            <span class="site-name">David Canales</span>
+        </div>
+        <button id="menu" class="menu" aria-label="Open navigation" aria-controls="primary-nav"
+            aria-expanded="false">☰</button>
+        <nav id="primary-nav" class="nav">
+            <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="#">Chamber</a></li>
+                <li><a href="#">Final</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Home</h1>
+
+        <section class="panel about">
+            <h2>About Me</h2>
+            <p>Hello! I’m <strong>David Canales</strong> from Vancouver, Washington. I’m studying Web Frontend
+                Development I (WDD 231) and building responsive, accessible sites while I strengthen my JavaScript
+                skills.</p>
+        </section>
+
+        <section class="panel photo">
+            <h2>Student Photo</h2>
+            <figure class="photo-frame">
+                <img src="images/profile.png" alt="Photo of David Canales" width="360" height="360" loading="lazy">
+            </figure>
+        </section>
+
+        <section class="panel courses">
+            <h2>Web Certificate Courses</h2>
+            <div class="filters" role="group" aria-label="Course filters">
+                <button class="chip active" data-filter="All">All</button>
+                <button class="chip" data-filter="CSE">CSE</button>
+                <button class="chip" data-filter="WDD">WDD</button>
+            </div>
+            <div id="course-list" class="course-list" aria-live="polite"></div>
+            <p class="credits"><span id="credit-total">The total credits for courses listed above is 0</span></p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="social">
+            <a href="https://github.com/canalesmejiad" target="_blank" aria-label="GitHub profile">
+                <img src="images/github.svg" alt="GitHub icon" width="28" height="28">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn profile">
+                <img src="images/linkedin.svg" alt="LinkedIn icon" width="28" height="28">
+            </a>
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook profile">
+                <img src="images/facebook.svg" alt="Facebook icon" width="28" height="28">
+            </a>
+        </div>
+        <p>© <span id="currentyear"></span> • David Canales • Vancouver, WA, USA</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+    </footer>
+</body>
+
+</html>
