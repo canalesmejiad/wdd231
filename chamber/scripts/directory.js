@@ -1,12 +1,5 @@
-const DATA_URL = './data/members.json';
-
-const state = {
-    members: [],
-    view: 'grid',
-    q: '',
-    category: '',
-    level: ''
-};
+// directory.js
+// Load and render business data from members.json
 
 const els = {
     container: document.getElementById('directory'),
@@ -18,69 +11,91 @@ const els = {
     template: document.getElementById('cardTemplate')
 };
 
-init();
-
-async function init() {
-    wireEvents();
-    await loadData();
-    setView('grid');
-    render();
-}
-
-function wireEvents() {
-    els.gridBtn.addEventListener('click', () => setView('grid'));
-    els.listBtn.addEventListener('click', () => setView('list'));
-    els.q.addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); render(); });
-    els.category.addEventListener('change', e => { state.category = e.target.value; render(); });
-    els.level.addEventListener('change', e => { state.level = e.target.value; render(); });
-}
-
-function setView(view) {
-    state.view = view;
-    els.gridBtn.classList.toggle('active', view === 'grid');
-    els.listBtn.classList.toggle('active', view === 'list');
-    els.gridBtn.setAttribute('aria-pressed', view === 'grid');
-    els.listBtn.setAttribute('aria-pressed', view === 'list');
-    els.container.classList.toggle('grid', view === 'grid');
-    els.container.classList.toggle('list', view === 'list');
-}
-
-async function loadData() {
-    try {
-        const res = await fetch(DATA_URL);
-        state.members = await res.json();
-    } catch (err) {
-        console.error('Error loading members:', err);
-        state.members = [];
+// Fetch the JSON data
+async function getMembers() {
+    const response = await fetch('./data/members.json');
+    if (!response.ok) {
+        console.error('Error loading members.json');
+        return [];
     }
+    const data = await response.json();
+    return data;
 }
 
-function render() {
-    const filtered = state.members.filter(m => {
-        const matchQ = !state.q ||
-            m.name.toLowerCase().includes(state.q) ||
-            (m.category?.toLowerCase().includes(state.q));
-        const matchCat = !state.category || m.category === state.category;
-        const matchLevel = !state.level || m.membershipLevel === state.level;
-        return matchQ && matchCat && matchLevel;
-    });
-
-    els.container.innerHTML = '';
-    const frag = document.createDocumentFragment();
-    filtered.forEach(m => frag.appendChild(cardFor(m)));
-    els.container.appendChild(frag);
-}
-
-function cardFor(m) {
-    const node = els.template.content.firstElementChild.cloneNode(true);
+// Build each card from the template
+function createCard(member) {
+    const node = els.template.content.cloneNode(true);
     const logo = node.querySelector('.card-logo');
-    logo.src = m.logo || './images/placeholder-logo.png';
-    logo.alt = `${m.name} logo`;
-    node.querySelector('.card-title').textContent = m.name;
-    node.querySelector('.card-meta').textContent = `${m.category} • Founded ${m.founded || '—'}`;
-    node.querySelector('.card-contact').textContent = `${m.phone} • ${m.address}`;
+    const title = node.querySelector('.card-title');
+    const meta = node.querySelector('.card-meta');
+    const contact = node.querySelector('.card-contact');
     const link = node.querySelector('.card-link');
-    link.href = m.website; link.textContent = 'Website';
-    node.querySelector('.badge').textContent = m.membershipLevel || 'Member';
+    const badge = node.querySelector('.badge');
+
+    logo.src = member.logo || './images/placeholder-logo.png';
+    logo.alt = `${member.name} logo`;
+    title.textContent = member.name;
+    meta.textContent = `${member.category} • Founded ${member.founded}`;
+    contact.textContent = `${member.phone} • ${member.address}`;
+    link.href = member.website;
+    badge.textContent = member.membershipLevel || '';
+    badge.classList.add(member.membershipLevel?.toLowerCase() || 'member');
+
     return node;
 }
+
+// Render filtered list
+function render(members) {
+    els.container.innerHTML = '';
+    members.forEach(m => els.container.appendChild(createCard(m)));
+}
+
+// Filter and search logic
+function filterMembers(all) {
+    const query = els.q.value.toLowerCase();
+    const cat = els.category.value;
+    const level = els.level.value;
+
+    return all.filter(m => {
+        const matchesQuery =
+            m.name.toLowerCase().includes(query) ||
+            m.category.toLowerCase().includes(query);
+
+        const matchesCat = !cat || m.category === cat;
+        const matchesLevel = !level || String(m.membershipLevel) === level;
+
+        return matchesQuery && matchesCat && matchesLevel;
+    });
+}
+
+// View toggle
+function setupViewToggle() {
+    els.gridBtn.addEventListener('click', () => {
+        els.container.classList.add('grid');
+        els.container.classList.remove('list');
+        els.gridBtn.classList.add('active');
+        els.listBtn.classList.remove('active');
+    });
+
+    els.listBtn.addEventListener('click', () => {
+        els.container.classList.add('list');
+        els.container.classList.remove('grid');
+        els.listBtn.classList.add('active');
+        els.gridBtn.classList.remove('active');
+    });
+}
+
+// Initialize directory
+async function init() {
+    const members = await getMembers();
+    render(members);
+
+    // Event listeners for filters/search
+    els.q.addEventListener('input', () => render(filterMembers(members)));
+    els.category.addEventListener('change', () => render(filterMembers(members)));
+    els.level.addEventListener('change', () => render(filterMembers(members)));
+
+    setupViewToggle();
+}
+
+init();
