@@ -43,46 +43,48 @@
     </header>
 
     <main>
-        <h2 id="directory-heading">Business Directory</h2>
+        <section id="directory" class="cards grid" aria-live="polite">
+            <h2 id="directory-heading">Business Directory</h2>
 
-        <section class="toolbar" aria-label="Directory view controls">
-            <div class="search-wrap">
-                <label for="q" class="visually-hidden">Search businesses</label>
-                <input id="q" type="search" placeholder="Search by name or category…">
-            </div>
+            <section class="toolbar" aria-label="Directory view controls">
+                <div class="search-wrap">
+                    <label for="q" class="visually-hidden">Search businesses</label>
+                    <input id="q" type="search" placeholder="Search by name or category…">
+                </div>
 
-            <div class="view-toggle" role="group" aria-label="Toggle view">
-                <button id="gridBtn" class="toggle active" aria-pressed="true">Grid</button>
-                <button id="listBtn" class="toggle" aria-pressed="false">List</button>
-            </div>
+                <div class="view-toggle" role="group" aria-label="Toggle view">
+                    <button id="gridBtn" class="toggle active" aria-pressed="true">Grid</button>
+                    <button id="listBtn" class="toggle" aria-pressed="false">List</button>
+                </div>
 
-            <div class="filters">
-                <label>
-                    Category:
-                    <select id="categoryFilter">
-                        <option value="">All</option>
-                        <option value="Construction">Construction</option>
-                        <option value="Food">Food</option>
-                        <option value="Retail">Retail</option>
-                        <option value="Technology">Technology</option>
-                        <option value="Services">Services</option>
-                    </select>
-                </label>
-                <label>
-                    Membership:
-                    <select id="levelFilter">
-                        <option value="">All</option>
-                        <option value="1">Member</option>
-                        <option value="2">Silver</option>
-                        <option value="3">Gold</option>
-                    </select>
-                </label>
-            </div>
+                <div class="filters">
+                    <label>
+                        Category:
+                        <select id="categoryFilter">
+                            <option value="">All</option>
+                            <option value="Construction">Construction</option>
+                            <option value="Food">Food</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Services">Services</option>
+                        </select>
+                    </label>
+                    <label>
+                        Membership:
+                        <select id="levelFilter">
+                            <option value="">All</option>
+                            <option value="1">Member</option>
+                            <option value="2">Silver</option>
+                            <option value="3">Gold</option>
+                        </select>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Directory Cards (JS will inject content here) -->
         </section>
 
-        <section id="directory" class="cards grid" aria-live="polite" aria-labelledby="directory-heading"></section>
-
-        <!-- Template for cards -->
+        <!-- Template for JS cards -->
         <template id="cardTemplate">
             <article class="card">
                 <img class="card-logo" alt="">
@@ -98,19 +100,21 @@
     </main>
 
     <footer class="site-footer">
-        <p>© <span id="year"></span> Vancouver Chamber of Commerce • Last Modified:
-            <time id="lastmod"></time>
+        <p>
+            © <span id="year"></span> Vancouver Chamber of Commerce • Last Modified:
+            <time id="lastmod" datetime="1970-01-01T00:00:00Z">1970-01-01</time>
         </p>
     </footer>
 
+    <!-- JavaScript -->
     <script type="module" src="./scripts/directory.js"></script>
     <script>
         const year = document.getElementById('year');
         const lastmod = document.getElementById('lastmod');
-        const date = new Date(document.lastModified);
+        const d = new Date(document.lastModified);
         year.textContent = new Date().getFullYear();
-        lastmod.textContent = date.toLocaleString();
-        lastmod.setAttribute('datetime', date.toISOString());
+        lastmod.textContent = d.toLocaleString();
+        lastmod.setAttribute('datetime', d.toISOString());
     </script>
 </body>
 
