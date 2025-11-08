@@ -97,3 +97,14 @@ async function init() {
 }
 
 init();
+
+// Footer date and copyright update
+const year = document.getElementById('year');
+const lastmod = document.getElementById('lastmod');
+
+if (year && lastmod) {
+    const d = new Date(document.lastModified);
+    year.textContent = new Date().getFullYear();
+    lastmod.textContent = d.toLocaleString();
+    lastmod.setAttribute('datetime', d.toISOString());
+}

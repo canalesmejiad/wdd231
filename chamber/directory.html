@@ -99,15 +99,8 @@
         </p>
     </footer>
 
-    <script type="module" src="./scripts/directory.js"></script>
-    <script>
-        const year = document.getElementById('year');
-        const lastmod = document.getElementById('lastmod');
-        const d = new Date(document.lastModified);
-        year.textContent = new Date().getFullYear();
-        lastmod.textContent = d.toLocaleString();
-        lastmod.setAttribute('datetime', d.toISOString());
-    </script>
+    <script type="module" src="scripts/directory.js" defer></script>
+
 </body>
 
 </html>
