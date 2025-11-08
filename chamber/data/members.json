@@ -40,7 +40,7 @@
         "phone": "(360) 555-2200",
         "address": "Vancouver, WA",
         "website": "https://example.com/evergreenretail",
-        "logo": "./images/evergreen-retail.png",
+        "logo": "./images/evergreen-retail.jpeg",
         "founded": 2012
     },
     {
@@ -51,7 +51,7 @@
         "phone": "(360) 555-2244",
         "address": "Vancouver, WA",
         "website": "https://example.com/cascadeplumbing",
-        "logo": "./images/placeholder-logo.png",
+        "logo": "./images/cascade-plumbing.png",
         "founded": 2009
     },
     {
@@ -62,7 +62,7 @@
         "phone": "(360) 555-8890",
         "address": "Vancouver, WA",
         "website": "https://example.com/skylinemkt",
-        "logo": "./images/placeholder-logo.png",
+        "logo": "./images/skyline-marketing.png.png",
         "founded": 2018
     },
     {
