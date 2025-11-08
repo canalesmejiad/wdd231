@@ -7,13 +7,9 @@
     <meta name="author" content="David Canales">
     <meta name="description"
         content="Explore local businesses in Vancouver through the official Chamber of Commerce directory. Connect, grow, and discover opportunities in our community.">
-
     <title>Business Directory | Vancouver Chamber of Commerce</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-
-    <!-- Open Graph Meta -->
     <meta property="og:title" content="Vancouver Chamber of Commerce Directory">
     <meta property="og:description"
         content="Discover trusted local businesses in Vancouver, Washington — part of our growing community chamber.">
@@ -21,12 +17,10 @@
     <meta property="og:url" content="https://canalesmejiad.github.io/wdd231/chamber/directory.html">
     <meta property="og:type" content="website">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/directory.css">
 </head>
@@ -43,7 +37,7 @@
     </header>
 
     <main>
-        <section id="directory" class="cards grid" aria-live="polite">
+        <section id="directory" aria-live="polite">
             <h2 id="directory-heading">Business Directory</h2>
 
             <section class="toolbar" aria-label="Directory view controls">
@@ -81,10 +75,9 @@
                 </div>
             </section>
 
-            <!-- Directory Cards (JS will inject content here) -->
+            <div id="directoryList" class="cards grid"></div>
         </section>
 
-        <!-- Template for JS cards -->
         <template id="cardTemplate">
             <article class="card">
                 <img class="card-logo" alt="">
@@ -106,7 +99,6 @@
         </p>
     </footer>
 
-    <!-- JavaScript -->
     <script type="module" src="./scripts/directory.js"></script>
     <script>
         const year = document.getElementById('year');
