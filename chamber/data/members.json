@@ -1,0 +1,32 @@
+[
+    {
+        "name": "DC Electric LLC",
+        "category": "Construction",
+        "membershipLevel": "Gold",
+        "phone": "(360) 555-1212",
+        "address": "Vancouver, WA",
+        "website": "https://example.com/dcelectric",
+        "logo": "./images/dc-electric.png",
+        "founded": 2019
+    },
+    {
+        "name": "Honduras Flavor Food Truck",
+        "category": "Food",
+        "membershipLevel": "Silver",
+        "phone": "(360) 555-3434",
+        "address": "Vancouver, WA",
+        "website": "https://example.com/hondurasflavor",
+        "logo": "./images/honduras-flavor.png",
+        "founded": 2021
+    },
+    {
+        "name": "Columbia Tech Services",
+        "category": "Technology",
+        "membershipLevel": "Non-Profit",
+        "phone": "(360) 555-7878",
+        "address": "Vancouver, WA",
+        "website": "https://example.com/columbiatech",
+        "logo": "./images/columbia-tech.png",
+        "founded": 2015
+    }
+]
