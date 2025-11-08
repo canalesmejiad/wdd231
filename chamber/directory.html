@@ -2,121 +2,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="David Canales" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Canales">
     <meta name="description"
-        content="Explore local businesses in Vancouver through the official Chamber of Commerce directory. Connect, grow, and discover opportunities in our community." />
+        content="Explore local businesses in Vancouver through the official Chamber of Commerce directory. Connect, grow, and discover opportunities in our community.">
+
     <title>Business Directory | Vancouver Chamber of Commerce</title>
 
-    <!-- Favicon (.ico) -->
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Vancouver Chamber of Commerce Directory" />
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Vancouver Chamber of Commerce Directory">
     <meta property="og:description"
-        content="Discover trusted local businesses in Vancouver, Washington — part of our growing community chamber." />
-    <meta property="og:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-preview.jpg" />
-    <meta property="og:url" content="https://canalesmejiad.github.io/wdd231/chamber/directory.html" />
-    <meta property="og:type" content="website" />
+        content="Discover trusted local businesses in Vancouver, Washington — part of our growing community chamber.">
+    <meta property="og:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-preview.jpg">
+    <meta property="og:url" content="https://canalesmejiad.github.io/wdd231/chamber/directory.html">
+    <meta property="og:type" content="website">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <!-- CSS (normalize primero) -->
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/directory.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/directory.css">
 </head>
 
 <body>
     <header class="site-header">
-        <div class="brand">
-            <img src="images/logo.png" alt="Vancouver Chamber logo" class="logo" />
-            <div class="brand-text">
-                <h1 class="site-title">Vancouver Chamber of Commerce</h1>
-                <p class="site-tagline">Connecting Businesses • Growing Community</p>
-            </div>
-        </div>
-
-        <!-- Mobile nav toggle (CSS-only) -->
-        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu">
-        <label for="nav-toggle" class="nav-btn" aria-hidden="true">
-            <span></span><span></span><span></span>
-        </label>
-
+        <img src="./images/logo.png" alt="Vancouver Chamber logo" class="logo">
         <nav class="site-nav" aria-label="Main navigation">
-            <a href="index.html">Home</a>
+            <a href="./index.html">Home</a>
             <a href="./discover.html">Discover</a>
-            <a class="active" href="directory.html">Directory</a>
+            <a class="active" href="./directory.html">Directory</a>
             <a href="./join.html">Join</a>
         </nav>
     </header>
 
-    <main id="main">
-        <h2>Business Directory</h2>
+    <main>
+        <h2 id="directory-heading">Business Directory</h2>
 
         <section class="toolbar" aria-label="Directory view controls">
             <div class="search-wrap">
                 <label for="q" class="visually-hidden">Search businesses</label>
-                <input id="q" type="search" placeholder="Search by name or category…" />
+                <input id="q" type="search" placeholder="Search by name or category…">
             </div>
 
-            <div class="view-toggle" role="group" aria-label="Toggle view">
-                <button id="gridBtn" class="toggle active" aria-pressed="true">Grid</button>
-                <button id="listBtn" class="toggle" aria-pressed="false">List</button>
+            <div class="view-toggle">
+                <button id="gridBtn" class="active">Grid</button>
+                <button id="listBtn">List</button>
             </div>
 
             <div class="filters">
-                <label>Category:
-                    <select id="categoryFilter">
-                        <option value="">All</option>
-                        <option value="Construction">Construction</option>
-                        <option value="Services">Services</option>
-                        <option value="Food">Food</option>
-                        <option value="Retail">Retail</option>
-                        <option value="Technology">Technology</option>
-                    </select>
-                </label>
-                <label>Membership:
-                    <select id="levelFilter">
-                        <option value="">All</option>
-                        <option value="Gold">Gold</option>
-                        <option value="Silver">Silver</option>
-                        <option value="Non-Profit">Non-Profit</option>
-                    </select>
-                </label>
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="all">All</option>
+                </select>
+
+                <label for="membership">Membership:</label>
+                <select id="membership">
+                    <option value="all">All</option>
+                    <option value="1">Member</option>
+                    <option value="2">Silver</option>
+                    <option value="3">Gold</option>
+                </select>
             </div>
         </section>
 
-        <section id="directory" class="cards grid" aria-live="polite"></section>
-
-        <template id="cardTemplate">
-            <article class="card">
-                <img class="card-logo" alt="" />
-                <div class="card-body">
-                    <h3 class="card-title"></h3>
-                    <p class="card-meta"></p>
-                    <p class="card-contact"></p>
-                    <a class="card-link" target="_blank" rel="noopener">Visit Website</a>
-                </div>
-                <span class="badge" title="Membership level"></span>
-            </article>
-        </template>
+        <!-- Directory Cards Section -->
+        <section id="directory" class="cards grid" aria-live="polite" aria-labelledby="directory-heading">
+            <!-- Cards dynamically generated by directory.js -->
+        </section>
     </main>
 
     <footer class="site-footer">
-        <p>© <span id="year"></span> Vancouver Chamber of Commerce • Last Modified:
+        <p>
+            © <span id="year"></span> Vancouver Chamber of Commerce • Last Modified:
             <time id="lastmod"></time>
         </p>
     </footer>
 
+    <!-- JavaScript -->
+    <script type="module" src="./scripts/directory.js"></script>
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        document.getElementById('lastmod').textContent = document.lastModified;
+        // Footer auto-date and <time> ISO formatting
+        const yearEl = document.getElementById('year');
+        const lastModEl = document.getElementById('lastmod');
+        const lastModDate = new Date(document.lastModified);
+        yearEl.textContent = new Date().getFullYear();
+        lastModEl.textContent = lastModDate.toLocaleString();
+        lastModEl.setAttribute('datetime', lastModDate.toISOString());
     </script>
-    <script src="scripts/directory.js" type="module"></script>
 </body>
 
 </html>
