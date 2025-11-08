@@ -6,7 +6,7 @@
         "phone": "(360) 555-1212",
         "address": "Vancouver, WA",
         "website": "https://example.com/dcelectric",
-        "logo": "./images/dc-electric.png",
+        "logo": "images/DC_Electric",
         "founded": 2019
     },
     {
@@ -30,4 +30,3 @@
         "founded": 2015
     }
 ]
-
