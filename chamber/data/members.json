@@ -62,7 +62,7 @@
         "phone": "(360) 555-8890",
         "address": "Vancouver, WA",
         "website": "https://example.com/skylinemkt",
-        "logo": "./images/skyline-marketing.png.png",
+        "logo": "./images/ skyline-marketing.png",
         "founded": 2018
     },
     {
@@ -73,7 +73,7 @@
         "phone": "(360) 555-9090",
         "address": "Vancouver, WA",
         "website": "https://example.com/rivercityfit",
-        "logo": "./images/placeholder-logo.png",
+        "logo": "./images/river-city-fitness.png",
         "founded": 2016
     },
     {
@@ -84,7 +84,7 @@
         "phone": "(360) 555-3333",
         "address": "Vancouver, WA",
         "website": "https://example.com/northshorebakery",
-        "logo": "./images/placeholder-logo.png",
+        "logo": "./images/northshore-bakery.png",
         "founded": 2010
     },
     {
@@ -95,7 +95,7 @@
         "phone": "(360) 555-7870",
         "address": "Vancouver, WA",
         "website": "https://example.com/pioneerland",
-        "logo": "./images/placeholder-logo.png",
+        "logo": "./images/pioneer-landscaping.png",
         "founded": 2014
     },
     {
@@ -106,7 +106,7 @@
         "phone": "(360) 555-6400",
         "address": "Vancouver, WA",
         "website": "https://example.com/summitcowork",
-        "logo": "./images/placeholder-logo.png",
+        "logo": "./images/summit-cowork.png",
         "founded": 2020
     }
 ]
