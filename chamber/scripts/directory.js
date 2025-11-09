@@ -1,142 +1,4 @@
-const FALLBACK_MEMBERS = [
-    {
-        name: "DC Electric LLC",
-        category: "Construction",
-        membership: "Gold",
-        level: 3,
-        phone: "(360) 555-1212",
-        address: "Vancouver, WA",
-        website: "https://example.com/dcelectric",
-        image: "dc-electric.png",
-        founded: 2019
-    },
-    {
-        name: "Honduras Flavor Food Truck",
-        category: "Food",
-        membership: "Silver",
-        level: 2,
-        phone: "(360) 555-3434",
-        address: "Vancouver, WA",
-        website: "https://example.com/hondurasflavor",
-        image: "honduras-flavor.png",
-        founded: 2021
-    }
-];
-
-async function loadMembers() {
-    try {
-        const url = new URL('./data/members.json', location.href);
-        console.log('Fetching JSON from:', url.href);
-        const res = await fetch(url.href, { cache: 'no-store' });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        if (!Array.isArray(data)) throw new Error('JSON is not an array');
-        displayMembers(data);
-    } catch (e) {
-        console.error('Error loading member data. Using fallback data ->', e);
-        displayMembers(FALLBACK_MEMBERS);
-    }
-}
-
-function displayMembers(members) {
-    const container = document.querySelector('#directoryList');
-    const template = document.querySelector('#cardTemplate');
-    if (!container || !template) return;
-
-    container.innerHTML = '';
-    if (!Array.isArray(members) || members.length === 0) {
-        const p = document.createElement('p');
-        p.textContent = 'No businesses to display.';
-        p.style.opacity = '0.7';
-        container.appendChild(p);
-        return;
-    }
-
-    members.forEach(m => {
-        const card = template.content.cloneNode(true);
-        const img = card.querySelector('.card-logo');
-        const title = card.querySelector('.card-title');
-        const meta = card.querySelector('.card-meta');
-        const contact = card.querySelector('.card-contact');
-        const link = card.querySelector('.card-link');
-        const badge = card.querySelector('.badge');
-
-        const name = m.name || '';
-        const category = m.category || '';
-        const founded = m.founded || '';
-        const phone = m.phone || '';
-        const address = m.address || '';
-        const website = m.website || '#';
-        const membership = m.membership || m.membershipLevel || 'Member';
-        const imgField = m.image || m.logo || '';
-        const src = imgField
-            ? (imgField.startsWith('./') ? imgField : `./images/${imgField}`)
-            : '';
-
-        img.src = src || './images/placeholder-logo.png';
-        img.alt = `${name} logo`;
-        img.onerror = () => { img.src = './images/placeholder-logo.png'; };
-
-        title.textContent = name;
-        meta.textContent = `${category} • Founded ${founded}`;
-        contact.textContent = `${phone} • ${address}`;
-        link.href = website;
-        badge.textContent = membership;
-        badge.classList.add(String(membership).toLowerCase());
-
-        container.appendChild(card);
-    });
-}
-
-function bindUI() {
-    const gridBtn = document.querySelector('#gridBtn');
-    const listBtn = document.querySelector('#listBtn');
-    const list = document.querySelector('#directoryList');
-    const categorySel = document.querySelector('#categoryFilter');
-    const levelSel = document.querySelector('#levelFilter');
-
-    if (gridBtn && listBtn && list) {
-        gridBtn.addEventListener('click', () => {
-            list.classList.add('grid');
-            list.classList.remove('list');
-            gridBtn.classList.add('active');
-            listBtn.classList.remove('active');
-        });
-        listBtn.addEventListener('click', () => {
-            list.classList.add('list');
-            list.classList.remove('grid');
-            listBtn.classList.add('active');
-            gridBtn.classList.remove('active');
-        });
-    }
-
-    async function applyFilters() {
-        try {
-            const url = new URL('./data/members.json', location.href);
-            const res = await fetch(url.href, { cache: 'no-store' });
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            let data = await res.json();
-            const cat = (categorySel?.value || '').toLowerCase();
-            const lvl = levelSel?.value || '';
-            if (cat) data = data.filter(m => (m.category || '').toLowerCase() === cat);
-            if (lvl) data = data.filter(m => String(m.level) === String(lvl));
-            displayMembers(data);
-        } catch (e) {
-            console.error('Error filtering, using fallback ->', e);
-            let data = FALLBACK_MEMBERS;
-            const cat = (categorySel?.value || '').toLowerCase();
-            const lvl = levelSel?.value || '';
-            if (cat) data = data.filter(m => (m.category || '').toLowerCase() === cat);
-            if (lvl) data = data.filter(m => String(m.level) === String(lvl));
-            displayMembers(data);
-        }
-    }
-
-    categorySel?.addEventListener('change', applyFilters);
-    levelSel?.addEventListener('change', applyFilters);
-}
-
-function updateFooterDates() {
+function initFooter() {
     const year = document.getElementById('year');
     const lastmod = document.getElementById('lastmod');
     if (year && lastmod) {
@@ -147,14 +9,82 @@ function updateFooterDates() {
     }
 }
 
-function init() {
-    bindUI();
-    updateFooterDates();
-    loadMembers();
+async function loadData() {
+    const res = await fetch('./data/members.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+}
+
+function render(members) {
+    const list = document.querySelector('#directoryList');
+    const tpl = document.querySelector('#cardTemplate');
+    list.innerHTML = '';
+
+    members.forEach(m => {
+        const node = tpl.content.cloneNode(true);
+        node.querySelector('.card-logo').src = `./images/${m.image}`;
+        node.querySelector('.card-logo').alt = `${m.name} logo`;
+        node.querySelector('.card-title').textContent = m.name;
+        node.querySelector('.card-meta').textContent = `${m.category} • Founded ${m.founded}`;
+        node.querySelector('.card-contact').textContent = `${m.phone} • ${m.address}`;
+        const a = node.querySelector('.card-link');
+        a.href = m.website;
+        const badge = node.querySelector('.badge');
+        badge.textContent = m.membership;
+        badge.classList.add(m.membership.toLowerCase());
+        list.appendChild(node);
+    });
+}
+
+function bindUI(data) {
+    const list = document.querySelector('#directoryList');
+    const gridBtn = document.getElementById('gridBtn');
+    const listBtn = document.getElementById('listBtn');
+    const category = document.getElementById('categoryFilter');
+    const level = document.getElementById('levelFilter');
+
+    gridBtn.addEventListener('click', () => {
+        list.classList.add('grid');
+        list.classList.remove('list');
+        gridBtn.classList.add('active');
+        listBtn.classList.remove('active');
+    });
+
+    listBtn.addEventListener('click', () => {
+        list.classList.add('list');
+        list.classList.remove('grid');
+        listBtn.classList.add('active');
+        gridBtn.classList.remove('active');
+    });
+
+    function applyFilters() {
+        let filtered = [...data];
+        if (category.value) {
+            filtered = filtered.filter(m => m.category === category.value);
+        }
+        if (level.value) {
+            filtered = filtered.filter(m => String(m.level) === level.value);
+        }
+        render(filtered);
+    }
+
+    category.addEventListener('change', applyFilters);
+    level.addEventListener('change', applyFilters);
+}
+
+async function main() {
+    try {
+        initFooter();
+        const data = await loadData();
+        render(data);
+        bindUI(data);
+    } catch (err) {
+        console.error(err);
+    }
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', main);
 } else {
-    init();
+    main();
 }
