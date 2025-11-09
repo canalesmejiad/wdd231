@@ -1,12 +1,40 @@
+const FALLBACK_MEMBERS = [
+    {
+        name: "DC Electric LLC",
+        category: "Construction",
+        membership: "Gold",
+        level: 3,
+        phone: "(360) 555-1212",
+        address: "Vancouver, WA",
+        website: "https://example.com/dcelectric",
+        image: "dc-electric.png",
+        founded: 2019
+    },
+    {
+        name: "Honduras Flavor Food Truck",
+        category: "Food",
+        membership: "Silver",
+        level: 2,
+        phone: "(360) 555-3434",
+        address: "Vancouver, WA",
+        website: "https://example.com/hondurasflavor",
+        image: "honduras-flavor.png",
+        founded: 2021
+    }
+];
+
 async function loadMembers() {
     try {
-        const res = await fetch('./data/members.json', { cache: 'no-store' });
+        const url = new URL('./data/members.json', location.href);
+        console.log('Fetching JSON from:', url.href);
+        const res = await fetch(url.href, { cache: 'no-store' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
+        if (!Array.isArray(data)) throw new Error('JSON is not an array');
         displayMembers(data);
     } catch (e) {
-        console.error('Error loading member data:', e);
-        displayMembers([]);
+        console.error('Error loading member data. Using fallback data ->', e);
+        displayMembers(FALLBACK_MEMBERS);
     }
 }
 
@@ -17,10 +45,10 @@ function displayMembers(members) {
 
     container.innerHTML = '';
     if (!Array.isArray(members) || members.length === 0) {
-        const empty = document.createElement('p');
-        empty.textContent = 'No businesses to display.';
-        empty.style.opacity = '0.7';
-        container.appendChild(empty);
+        const p = document.createElement('p');
+        p.textContent = 'No businesses to display.';
+        p.style.opacity = '0.7';
+        container.appendChild(p);
         return;
     }
 
@@ -41,7 +69,9 @@ function displayMembers(members) {
         const website = m.website || '#';
         const membership = m.membership || m.membershipLevel || 'Member';
         const imgField = m.image || m.logo || '';
-        const src = imgField.startsWith('./') ? imgField : (imgField ? `./images/${imgField}` : '');
+        const src = imgField
+            ? (imgField.startsWith('./') ? imgField : `./images/${imgField}`)
+            : '';
 
         img.src = src || './images/placeholder-logo.png';
         img.alt = `${name} logo`;
@@ -72,7 +102,6 @@ function bindUI() {
             gridBtn.classList.add('active');
             listBtn.classList.remove('active');
         });
-
         listBtn.addEventListener('click', () => {
             list.classList.add('list');
             list.classList.remove('grid');
@@ -83,18 +112,23 @@ function bindUI() {
 
     async function applyFilters() {
         try {
-            const res = await fetch('./data/members.json', { cache: 'no-store' });
+            const url = new URL('./data/members.json', location.href);
+            const res = await fetch(url.href, { cache: 'no-store' });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             let data = await res.json();
             const cat = (categorySel?.value || '').toLowerCase();
             const lvl = levelSel?.value || '';
-
             if (cat) data = data.filter(m => (m.category || '').toLowerCase() === cat);
             if (lvl) data = data.filter(m => String(m.level) === String(lvl));
-
             displayMembers(data);
         } catch (e) {
-            console.error('Error filtering members:', e);
+            console.error('Error filtering, using fallback ->', e);
+            let data = FALLBACK_MEMBERS;
+            const cat = (categorySel?.value || '').toLowerCase();
+            const lvl = levelSel?.value || '';
+            if (cat) data = data.filter(m => (m.category || '').toLowerCase() === cat);
+            if (lvl) data = data.filter(m => String(m.level) === String(lvl));
+            displayMembers(data);
         }
     }
 
