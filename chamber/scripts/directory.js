@@ -10,7 +10,7 @@ function initFooter() {
 }
 
 async function loadData() {
-    const res = await fetch('./data/members.json', { cache: 'no-store' });
+    const res = await fetch('./data/members.json');
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return await res.json();
 }
@@ -18,58 +18,86 @@ async function loadData() {
 function render(members) {
     const list = document.querySelector('#directoryList');
     const tpl = document.querySelector('#cardTemplate');
+    if (!list || !tpl) return;
     list.innerHTML = '';
-
     members.forEach(m => {
         const node = tpl.content.cloneNode(true);
-        node.querySelector('.card-logo').src = `./images/${m.image}`;
-        node.querySelector('.card-logo').alt = `${m.name} logo`;
-        node.querySelector('.card-title').textContent = m.name;
-        node.querySelector('.card-meta').textContent = `${m.category} • Founded ${m.founded}`;
-        node.querySelector('.card-contact').textContent = `${m.phone} • ${m.address}`;
+        const img = node.querySelector('.card-logo');
+        const title = node.querySelector('.card-title');
+        const meta = node.querySelector('.card-meta');
+        const contact = node.querySelector('.card-contact');
         const a = node.querySelector('.card-link');
-        a.href = m.website;
         const badge = node.querySelector('.badge');
+        const src = `./images/${m.image}`;
+        img.src = src;
+        img.alt = `${m.name} logo`;
+        img.onerror = () => { img.src = './images/placeholder-logo.png'; };
+        title.textContent = m.name;
+        meta.textContent = `${m.category} • Founded ${m.founded}`;
+        contact.textContent = `${m.phone} • ${m.address}`;
+        a.href = m.website;
         badge.textContent = m.membership;
-        badge.classList.add(m.membership.toLowerCase());
+        badge.classList.add(String(m.membership).toLowerCase());
         list.appendChild(node);
     });
 }
 
 function bindUI(data) {
-    const list = document.querySelector('#directoryList');
+    const listEl = document.querySelector('#directoryList');
     const gridBtn = document.getElementById('gridBtn');
     const listBtn = document.getElementById('listBtn');
-    const category = document.getElementById('categoryFilter');
-    const level = document.getElementById('levelFilter');
-
-    gridBtn.addEventListener('click', () => {
-        list.classList.add('grid');
-        list.classList.remove('list');
-        gridBtn.classList.add('active');
-        listBtn.classList.remove('active');
-    });
-
-    listBtn.addEventListener('click', () => {
-        list.classList.add('list');
-        list.classList.remove('grid');
-        listBtn.classList.add('active');
-        gridBtn.classList.remove('active');
-    });
-
-    function applyFilters() {
-        let filtered = [...data];
-        if (category.value) {
-            filtered = filtered.filter(m => m.category === category.value);
-        }
-        if (level.value) {
-            filtered = filtered.filter(m => String(m.level) === level.value);
+    const qInput = document.getElementById('q');
+    const categorySel = document.getElementById('categoryFilter');
+    const levelSel = document.getElementById('levelFilter');
+    if (gridBtn && listBtn && listEl) {
+        gridBtn.addEventListener('click', () => {
+            listEl.classList.add('grid');
+            listEl.classList.remove('list');
+            gridBtn.classList.add('active');
+            listBtn.classList.remove('active');
+        });
+        listBtn.addEventListener('click', () => {
+            listEl.classList.add('list');
+            listEl.classList.remove('grid');
+            listBtn.classList.add('active');
+            gridBtn.classList.remove('active');
+        });
+    }
+    const state = { q: '', category: '', level: '' };
+    function apply() {
+        const q = state.q.trim().toLowerCase();
+        let filtered = data;
+        if (state.category) filtered = filtered.filter(m => (m.category || '') === state.category);
+        if (state.level) filtered = filtered.filter(m => String(m.level) === state.level);
+        if (q) {
+            filtered = filtered.filter(m => {
+                const haystack = `${m.name} ${m.category}`.toLowerCase();
+                return haystack.includes(q);
+            });
         }
         render(filtered);
     }
-
-    category.addEventListener('change', applyFilters);
-    level.addEventListener('change', applyFilters);
+    function debounce(fn, ms) {
+        let t;
+        return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn(...args), ms);
+        };
+    }
+    const onSearch = debounce(e => {
+        state.q = e.target.value || '';
+        apply();
+    }, 200);
+    qInput?.addEventListener('input', onSearch);
+    categorySel?.addEventListener('change', () => {
+        state.category = categorySel.value || '';
+        apply();
+    });
+    levelSel?.addEventListener('change', () => {
+        state.level = levelSel.value || '';
+        apply();
+    });
+    apply();
 }
 
 async function main() {
