@@ -1,15 +1,22 @@
 :root {
     --bg: #ffffff;
-    --bg-muted: #f8f9fa;
-    --text: #1e2a38;
-    --text-strong: #222222;
-    --muted: #6b7280;
+    --bg-muted: #f9fafb;
+    --bg-alt: #eef2ff;
+    --border: #e5e7eb;
+
+    --text: #1f2937;
+    --text-strong: #111827;
+    --text-muted: #475569;
+
     --brand: #0d4ea6;
-    --brand-dark: #1e2a38;
-    --accent: #0077b6;
-    --card-border: #e5e7eb;
-    --ring: #94a3b8;
-    --ring-strong: #7fb5e9;
+    --brand-dark: #093b82;
+    --accent: #0069a8;
+    /* AA sobre blanco */
+
+    --gold: #f6e27a;
+    --silver: #e2e8f0;
+    --member: #eef2ff;
+
     --radius: 14px;
     --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .1);
     --shadow-lg: 0 8px 20px rgba(16, 24, 40, .12);
@@ -48,7 +55,7 @@ img {
     position: sticky;
     top: 0;
     z-index: 40;
-    box-shadow: 0 1px 0 var(--card-border);
+    box-shadow: 0 1px 0 var(--border);
 }
 
 .logo {
@@ -67,7 +74,7 @@ img {
     font-weight: 600;
     font-size: 14px;
     padding: 8px 10px;
-    color: var(--brand-dark);
+    color: var(--text-strong);
     border-radius: 10px;
 }
 
@@ -99,7 +106,7 @@ h1 {
     grid-template-columns: 1fr;
     align-items: center;
     background: var(--bg);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 14px;
     box-shadow: var(--shadow);
@@ -115,12 +122,12 @@ input[type="search"],
 select {
     width: 100%;
     padding: 12px 14px;
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--border);
     border-radius: 12px;
     font-size: 15px;
     background: var(--bg);
     color: var(--text);
-    transition: border-color .15s ease, box-shadow .15s ease;
+    transition: box-shadow .15s ease;
 }
 
 input::placeholder {
@@ -130,7 +137,6 @@ input::placeholder {
 input:focus,
 select:focus {
     outline: 0;
-    border-color: var(--brand);
     box-shadow: 0 0 0 3px rgba(13, 78, 166, .25);
 }
 
@@ -141,14 +147,14 @@ select:focus {
 
 .toggle {
     appearance: none;
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--border);
     background: var(--bg);
     color: var(--text-strong);
     padding: 10px 14px;
     border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: background .15s ease, border-color .15s ease, transform .06s ease;
+    transition: background .15s ease, transform .06s ease;
 }
 
 .toggle:hover {
@@ -162,7 +168,7 @@ select:focus {
 .toggle.active {
     background: var(--brand);
     color: #fff;
-    border-color: var(--brand);
+    border-color: transparent;
 }
 
 .filters {
@@ -207,7 +213,7 @@ select:focus {
     gap: 16px;
     align-items: center;
     background: var(--bg);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 14px;
     box-shadow: var(--shadow);
@@ -223,7 +229,7 @@ select:focus {
     border-radius: 12px;
     object-fit: cover;
     background: var(--bg-muted);
-    border: 1px solid var(--card-border)
+    border: 1px solid var(--border)
 }
 
 .card-body {
@@ -242,15 +248,16 @@ select:focus {
 .card-contact {
     margin: 0;
     font-size: 14px;
-    color: var(--muted);
+    color: var(--text-muted);
 }
 
 .card-link {
     width: max-content;
     color: var(--accent);
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
     font-weight: 700;
-    border-bottom: 2px solid var(--accent);
 }
 
 .card-link:hover {
@@ -262,25 +269,25 @@ select:focus {
     border-radius: 999px;
     font-size: 12px;
     font-weight: 800;
-    border: 1px solid var(--card-border);
-    color: var(--brand-dark);
-    background: #eef2ff;
+    border: 1px solid var(--border);
+    color: var(--text-strong);
+    background: var(--member);
     height: max-content;
 }
 
 .badge.gold {
-    background: #f6e27a;
-    color: var(--brand-dark)
+    background: var(--gold);
+    color: var(--text-strong)
 }
 
 .badge.silver {
-    background: #e5e7eb;
-    color: var(--brand-dark)
+    background: var(--silver);
+    color: var(--text-strong)
 }
 
 .badge.member {
-    background: #dbeafe;
-    color: var(--brand-dark)
+    background: var(--member);
+    color: var(--text-strong)
 }
 
 .cards.list .card {
@@ -295,7 +302,7 @@ select:focus {
 .site-footer {
     margin: 36px 0;
     text-align: center;
-    color: var(--muted);
+    color: var(--text-muted);
     font-size: 14px;
 }
 
@@ -303,7 +310,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible {
-    outline: 3px solid var(--ring-strong);
+    outline: 3px solid rgba(13, 78, 166, .35);
     outline-offset: 2px;
     border-radius: 10px;
 }
