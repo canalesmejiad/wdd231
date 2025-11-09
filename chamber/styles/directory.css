@@ -3,20 +3,15 @@
     --bg-muted: #f9fafb;
     --bg-alt: #eef2ff;
     --border: #e5e7eb;
-
     --text: #1f2937;
     --text-strong: #111827;
     --text-muted: #475569;
-
     --brand: #0d4ea6;
     --brand-dark: #093b82;
-    --accent: #0069a8;
-    /* AA sobre blanco */
-
+    --accent: #005a9c;
     --gold: #f6e27a;
     --silver: #e2e8f0;
     --member: #eef2ff;
-
     --radius: 14px;
     --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .1);
     --shadow-lg: 0 8px 20px rgba(16, 24, 40, .12);
@@ -251,7 +246,8 @@ select:focus {
     color: var(--text-muted);
 }
 
-.card-link {
+.card-link,
+.card-link:visited {
     width: max-content;
     color: var(--accent);
     text-decoration: underline;
