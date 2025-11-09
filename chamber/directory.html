@@ -27,7 +27,8 @@
 
 <body>
     <header class="site-header">
-        <img src="images/logo.jpg" alt="Vancouver Chamber logo" class="logo">
+        <img src="images/logo.jpg" alt="Vancouver Chamber logo" class="logo" width="96" height="32"
+            fetchpriority="high">
         <nav class="site-nav" aria-label="Main navigation">
             <a href="./index.html">Home</a>
             <a href="./discover.html">Discover</a>
@@ -43,7 +44,8 @@
             <section class="toolbar" aria-label="Directory view controls">
                 <div class="search-wrap">
                     <label for="q" class="visually-hidden">Search businesses</label>
-                    <input id="q" type="search" placeholder="Search by name or category…">
+                    <input id="q" type="search" placeholder="Search by name or category…" autocomplete="off"
+                        enterkeyhint="search">
                 </div>
 
                 <div class="view-toggle" role="group" aria-label="Toggle view">
@@ -80,7 +82,7 @@
 
         <template id="cardTemplate">
             <article class="card">
-                <img class="card-logo" alt="">
+                <img class="card-logo" loading="lazy" decoding="async" alt="" width="96" height="96">
                 <div class="card-body">
                     <h3 class="card-title"></h3>
                     <p class="card-meta"></p>
