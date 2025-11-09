@@ -7,7 +7,7 @@
         "phone": "(360) 555-1212",
         "address": "Vancouver, WA",
         "website": "https://example.com/dcelectric",
-        "image": "dc-electric.png",
+        "image": "dc-electric.jpg",
         "founded": 2019
     },
     {
@@ -18,7 +18,7 @@
         "phone": "(360) 555-3434",
         "address": "Vancouver, WA",
         "website": "https://example.com/hondurasflavor",
-        "image": "honduras-flavor.png",
+        "image": "honduras-flavor.jpg",
         "founded": 2021
     },
     {
@@ -29,7 +29,7 @@
         "phone": "(360) 555-7878",
         "address": "Vancouver, WA",
         "website": "https://example.com/columbiatech",
-        "image": "columbia-tech.png",
+        "image": "columbia-tech.jpg",
         "founded": 2015
     },
     {
@@ -40,7 +40,7 @@
         "phone": "(360) 555-2200",
         "address": "Vancouver, WA",
         "website": "https://example.com/evergreenretail",
-        "image": "evergreen-retail.png",
+        "image": "evergreen-retail.jpg",
         "founded": 2012
     },
     {
@@ -51,7 +51,7 @@
         "phone": "(360) 555-2244",
         "address": "Vancouver, WA",
         "website": "https://example.com/cascadeplumbing",
-        "image": "cascade-plumbing.png",
+        "image": "cascade-plumbing.jpg",
         "founded": 2009
     },
     {
@@ -62,7 +62,7 @@
         "phone": "(360) 555-8890",
         "address": "Vancouver, WA",
         "website": "https://example.com/skylinemkt",
-        "image": "skyline-marketing.png",
+        "image": "skyline-marketing.jpg",
         "founded": 2018
     },
     {
@@ -73,7 +73,7 @@
         "phone": "(360) 555-9090",
         "address": "Vancouver, WA",
         "website": "https://example.com/rivercityfit",
-        "image": "river-city-fitness.png",
+        "image": "river-city-fitness.jpg",
         "founded": 2016
     },
     {
@@ -84,7 +84,7 @@
         "phone": "(360) 555-3333",
         "address": "Vancouver, WA",
         "website": "https://example.com/northshorebakery",
-        "image": "northshore-bakery.png",
+        "image": "northshore-bakery.jpg",
         "founded": 2010
     },
     {
@@ -95,7 +95,7 @@
         "phone": "(360) 555-7870",
         "address": "Vancouver, WA",
         "website": "https://example.com/pioneerland",
-        "image": "pioneer-landscaping.png",
+        "image": "pioneer-landscaping.jpg",
         "founded": 2014
     },
     {
@@ -106,7 +106,7 @@
         "phone": "(360) 555-6400",
         "address": "Vancouver, WA",
         "website": "https://example.com/summitcowork",
-        "image": "summit-cowork.png",
+        "image": "summit-cowork.jpg",
         "founded": 2020
     }
 ]
