@@ -6,6 +6,7 @@ async function loadMembers() {
         displayMembers(data);
     } catch (e) {
         console.error('Error loading member data:', e);
+        displayMembers([]);
     }
 }
 
@@ -15,6 +16,14 @@ function displayMembers(members) {
     if (!container || !template) return;
 
     container.innerHTML = '';
+    if (!Array.isArray(members) || members.length === 0) {
+        const empty = document.createElement('p');
+        empty.textContent = 'No businesses to display.';
+        empty.style.opacity = '0.7';
+        container.appendChild(empty);
+        return;
+    }
+
     members.forEach(m => {
         const card = template.content.cloneNode(true);
         const img = card.querySelector('.card-logo');
@@ -24,18 +33,24 @@ function displayMembers(members) {
         const link = card.querySelector('.card-link');
         const badge = card.querySelector('.badge');
 
+        const name = m.name || '';
+        const category = m.category || '';
+        const founded = m.founded || '';
+        const phone = m.phone || '';
+        const address = m.address || '';
+        const website = m.website || '#';
         const membership = m.membership || m.membershipLevel || 'Member';
-        const imageName = m.image || m.logo || '';
-        const src = imageName.startsWith('./') ? imageName : `./images/${imageName}`;
+        const imgField = m.image || m.logo || '';
+        const src = imgField.startsWith('./') ? imgField : (imgField ? `./images/${imgField}` : '');
 
         img.src = src || './images/placeholder-logo.png';
-        img.alt = `${m.name} logo`;
+        img.alt = `${name} logo`;
         img.onerror = () => { img.src = './images/placeholder-logo.png'; };
 
-        title.textContent = m.name;
-        meta.textContent = `${m.category} • Founded ${m.founded}`;
-        contact.textContent = `${m.phone} • ${m.address}`;
-        link.href = m.website;
+        title.textContent = name;
+        meta.textContent = `${category} • Founded ${founded}`;
+        contact.textContent = `${phone} • ${address}`;
+        link.href = website;
         badge.textContent = membership;
         badge.classList.add(String(membership).toLowerCase());
 
@@ -57,6 +72,7 @@ function bindUI() {
             gridBtn.classList.add('active');
             listBtn.classList.remove('active');
         });
+
         listBtn.addEventListener('click', () => {
             list.classList.add('list');
             list.classList.remove('grid');
@@ -70,10 +86,12 @@ function bindUI() {
             const res = await fetch('./data/members.json', { cache: 'no-store' });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             let data = await res.json();
-            const cat = categorySel?.value || '';
+            const cat = (categorySel?.value || '').toLowerCase();
             const lvl = levelSel?.value || '';
-            if (cat) data = data.filter(m => (m.category || '').toLowerCase() === cat.toLowerCase());
+
+            if (cat) data = data.filter(m => (m.category || '').toLowerCase() === cat);
             if (lvl) data = data.filter(m => String(m.level) === String(lvl));
+
             displayMembers(data);
         } catch (e) {
             console.error('Error filtering members:', e);
