@@ -40,7 +40,7 @@ img {
     display: block
 }
 
-/* Header original */
+
 .site-header {
     display: flex;
     align-items: center;
@@ -83,7 +83,7 @@ img {
     background: var(--brand)
 }
 
-/* NUEVO: botón hamburguesa minimal (no rompe desktop) */
+
 .menu-toggle {
     display: none;
     width: 40px;
@@ -97,7 +97,7 @@ img {
     line-height: 1;
 }
 
-/* NUEVO: breadcrumb minimal */
+
 .breadcrumb {
     max-width: 1100px;
     margin: 8px auto 18px;
@@ -131,7 +131,7 @@ img {
     font-weight: 600
 }
 
-/* Responsive: solo en móvil mostramos toggle y ocultamos nav hasta abrir */
+
 @media (max-width:700px) {
     .menu-toggle {
         display: inline-flex;
@@ -150,7 +150,7 @@ img {
     }
 }
 
-/* Main */
+
 main {
     max-width: 1100px;
     margin: 0 auto 24px;
@@ -164,7 +164,7 @@ h1 {
     color: var(--text-strong);
 }
 
-/* Toolbar */
+
 .toolbar {
     display: grid;
     gap: 12px;
@@ -205,7 +205,7 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(13, 78, 166, .25);
 }
 
-/* View toggle */
+
 .view-toggle {
     display: flex;
     gap: 8px
@@ -237,7 +237,7 @@ select:focus {
     border-color: transparent;
 }
 
-/* Filters */
+
 .filters {
     display: flex;
     gap: 12px;
@@ -252,7 +252,7 @@ select:focus {
     font-size: 14px
 }
 
-/* Cards */
+
 .cards {
     display: grid;
     gap: 16px;
@@ -368,7 +368,7 @@ select:focus {
     height: 64px
 }
 
-/* Footer */
+
 .site-footer {
     margin: 36px 0;
     text-align: center;
@@ -376,7 +376,7 @@ select:focus {
     font-size: 14px;
 }
 
-/* Focus visible */
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -386,7 +386,7 @@ select:focus-visible {
     border-radius: 10px;
 }
 
-/* Reduced motion */
+
 @media (prefers-reduced-motion:reduce) {
     * {
         animation: none !important;
@@ -394,7 +394,7 @@ select:focus-visible {
     }
 }
 
-/* A11y helper */
+
 .visually-hidden {
     position: absolute !important;
     width: 1px;
