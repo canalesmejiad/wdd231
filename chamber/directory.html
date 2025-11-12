@@ -2,21 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="David Canales" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Canales">
     <meta name="description"
-        content="Explore local businesses in Vancouver through the official Chamber of Commerce directory. Connect, grow, and discover opportunities in our community." />
-    <title>Business Directory | Vancouver Chamber of Commerce</title>
+        content="Explore local businesses in Vancouver through the official Chamber of Commerce directory.">
+    <title>Business Directory | Vancouver Chamber</title>
 
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/directory.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <!-- ✅ Open Graph Metadata for Social Media -->
+    <meta property="og:title" content="Vancouver Chamber | Business Directory">
+    <meta property="og:description"
+        content="Discover trusted local businesses, services, and organizations in Vancouver through the official Chamber of Commerce business directory.">
+    <meta property="og:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-image.jpg">
+    <meta property="og:url" content="https://canalesmejiad.github.io/wdd231/chamber/directory.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
 
-    <link rel="stylesheet" href="./styles/normalize.css" />
-    <link rel="stylesheet" href="./styles/directory.css" />
+    <!-- ✅ Twitter Card Metadata (optional but recommended) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vancouver Chamber | Business Directory">
+    <meta name="twitter:description"
+        content="Explore Vancouver's trusted local businesses and services in the official Chamber of Commerce directory.">
+    <meta name="twitter:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-image.jpg">
 </head>
 
 <body>
@@ -41,46 +52,44 @@
     </nav>
 
     <main id="main">
-        <h1 id="directory-heading">Business Directory</h1>
+        <h1>Business Directory</h1>
 
-        <section id="directory" aria-live="polite">
-            <section class="toolbar" aria-label="Directory view controls">
-                <div class="search-wrap">
-                    <label for="q" class="visually-hidden">Search businesses</label>
-                    <input id="q" type="search" placeholder="Search by name or category…">
-                </div>
+        <section class="toolbar">
+            <div class="search-wrap">
+                <label for="q" class="visually-hidden">Search businesses</label>
+                <input id="q" type="search" placeholder="Search by name or category…">
+            </div>
 
-                <div class="view-toggle" role="group" aria-label="Toggle view">
-                    <button id="gridBtn" class="toggle active" aria-pressed="true">Grid</button>
-                    <button id="listBtn" class="toggle" aria-pressed="false">List</button>
-                </div>
+            <div class="view-toggle">
+                <button id="gridBtn" class="toggle active" aria-pressed="true">Grid</button>
+                <button id="listBtn" class="toggle" aria-pressed="false">List</button>
+            </div>
 
-                <div class="filters">
-                    <label>
-                        Category:
-                        <select id="categoryFilter">
-                            <option value="">All</option>
-                            <option value="Construction">Construction</option>
-                            <option value="Food">Food</option>
-                            <option value="Retail">Retail</option>
-                            <option value="Technology">Technology</option>
-                            <option value="Services">Services</option>
-                        </select>
-                    </label>
-                    <label>
-                        Membership:
-                        <select id="levelFilter">
-                            <option value="">All</option>
-                            <option value="1">Member</option>
-                            <option value="2">Silver</option>
-                            <option value="3">Gold</option>
-                        </select>
-                    </label>
-                </div>
-            </section>
-
-            <div id="directoryList" class="cards grid"></div>
+            <div class="filters">
+                <label>
+                    Category:
+                    <select id="categoryFilter">
+                        <option value="">All</option>
+                        <option value="Construction">Construction</option>
+                        <option value="Food">Food</option>
+                        <option value="Retail">Retail</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Services">Services</option>
+                    </select>
+                </label>
+                <label>
+                    Membership:
+                    <select id="levelFilter">
+                        <option value="">All</option>
+                        <option value="1">Member</option>
+                        <option value="2">Silver</option>
+                        <option value="3">Gold</option>
+                    </select>
+                </label>
+            </div>
         </section>
+
+        <div id="directoryList" class="cards grid"></div>
 
         <template id="cardTemplate">
             <article class="card">
@@ -91,7 +100,7 @@
                     <p class="card-contact"></p>
                     <a class="card-link" target="_blank" rel="noopener">Website</a>
                 </div>
-                <span class="badge" title="Membership level"></span>
+                <span class="badge"></span>
             </article>
         </template>
     </main>
@@ -99,7 +108,7 @@
     <footer class="site-footer">
         <p>
             © <span id="year"></span> Vancouver Chamber of Commerce • Last Modified:
-            <time id="lastmod" datetime="1970-01-01T00:00:00Z">1970-01-01</time>
+            <time id="lastmod"></time>
         </p>
     </footer>
 
