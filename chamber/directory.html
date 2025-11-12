@@ -2,61 +2,63 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="David Canales">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="David Canales" />
     <meta name="description"
-        content="Explore local businesses in Vancouver through the official Chamber of Commerce directory.">
+        content="Explore local businesses in Vancouver through the official Chamber of Commerce directory. Connect, grow, and discover opportunities in our community." />
     <title>Business Directory | Vancouver Chamber of Commerce</title>
 
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-    <link rel="stylesheet" href="./styles/normalize.css">
-    <link rel="stylesheet" href="./styles/site.css">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/directory.css" />
 </head>
 
 <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+        <img src="images/logo.jpg" alt="Vancouver Chamber logo" class="logo">
 
-    <div class="container">
-        <header class="site-header">
-            <a class="brand" href="./index.html">
-                <img src="./images/logo.jpg" alt="Vancouver Chamber logo">
-                Vancouver Chamber
-            </a>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
-            <nav class="main-nav" aria-label="Main" aria-expanded="false">
-                <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./discover.html">Discover</a></li>
-                    <li><a href="./directory.html" aria-current="page">Directory</a></li>
-                    <li><a href="./join.html">Join</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-            <ol>
-                <li><a href="./index.html">Home</a></li>
-                <li aria-current="page">Directory</li>
-            </ol>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="./index.html">Home</a>
+            <a href="./discover.html">Discover</a>
+            <a class="active" href="./directory.html" aria-current="page">Directory</a>
+            <a href="./join.html">Join</a>
         </nav>
+    </header>
 
-        <main id="main">
-            <h1>Business Directory</h1>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+            <li><a href="./index.html">Home</a></li>
+            <li aria-current="page">Directory</li>
+        </ol>
+    </nav>
 
-            <section class="toolbar mt-3" aria-label="Directory view controls">
-                <div class="grid-2">
-                    <input id="q" class="input" type="search" placeholder="Search by name or category…">
-                    <div class="grid-2">
-                        <button id="gridBtn" class="btn active">Grid</button>
-                        <button id="listBtn" class="btn">List</button>
-                    </div>
+    <main id="main">
+        <h1 id="directory-heading">Business Directory</h1>
+
+        <section id="directory" aria-live="polite">
+            <section class="toolbar" aria-label="Directory view controls">
+                <div class="search-wrap">
+                    <label for="q" class="visually-hidden">Search businesses</label>
+                    <input id="q" type="search" placeholder="Search by name or category…">
                 </div>
 
-                <div class="grid-2 mt-3">
-                    <label>Category:
-                        <select id="categoryFilter" class="select">
+                <div class="view-toggle" role="group" aria-label="Toggle view">
+                    <button id="gridBtn" class="toggle active" aria-pressed="true">Grid</button>
+                    <button id="listBtn" class="toggle" aria-pressed="false">List</button>
+                </div>
+
+                <div class="filters">
+                    <label>
+                        Category:
+                        <select id="categoryFilter">
                             <option value="">All</option>
                             <option value="Construction">Construction</option>
                             <option value="Food">Food</option>
@@ -65,9 +67,9 @@
                             <option value="Services">Services</option>
                         </select>
                     </label>
-
-                    <label>Membership:
-                        <select id="levelFilter" class="select">
+                    <label>
+                        Membership:
+                        <select id="levelFilter">
                             <option value="">All</option>
                             <option value="1">Member</option>
                             <option value="2">Silver</option>
@@ -77,32 +79,31 @@
                 </div>
             </section>
 
-            <section class="mt-3">
-                <div id="directoryList" class="cards grid"></div>
-            </section>
+            <div id="directoryList" class="cards grid"></div>
+        </section>
 
-            <template id="cardTemplate">
-                <article class="card company">
-                    <img class="card-logo" alt="">
-                    <div class="card-body">
-                        <h3 class="card-title"></h3>
-                        <p class="card-meta"></p>
-                        <p class="card-contact"></p>
-                        <a class="card-link" target="_blank" rel="noopener">Website</a>
-                    </div>
-                    <span class="badge"></span>
-                </article>
-            </template>
-        </main>
-    </div>
+        <template id="cardTemplate">
+            <article class="card">
+                <img class="card-logo" alt="">
+                <div class="card-body">
+                    <h3 class="card-title"></h3>
+                    <p class="card-meta"></p>
+                    <p class="card-contact"></p>
+                    <a class="card-link" target="_blank" rel="noopener">Website</a>
+                </div>
+                <span class="badge" title="Membership level"></span>
+            </article>
+        </template>
+    </main>
 
     <footer class="site-footer">
-        © <span id="year"></span> Vancouver Chamber of Commerce • Last Modified:
-        <time id="lastmod"></time>
+        <p>
+            © <span id="year"></span> Vancouver Chamber of Commerce • Last Modified:
+            <time id="lastmod" datetime="1970-01-01T00:00:00Z">1970-01-01</time>
+        </p>
     </footer>
 
     <script src="./scripts/nav.js" defer></script>
-    <script src="./scripts/date.js" defer></script>
     <script src="./scripts/directory.js" defer></script>
 </body>
 
