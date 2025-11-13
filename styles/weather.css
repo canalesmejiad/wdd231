@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background: #f3f6fa;
+    color: #1f2a37;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #0a3d62;
+    margin-bottom: 1.5rem;
+}
+
+main {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 320px;
+}
+
+#current-temp {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #0a3d62;
+}
+
+figure {
+    margin-top: 1rem;
+}
+
+#weather-icon {
+    width: 100px;
+    height: auto;
+}
+
+figcaption {
+    margin-top: .5rem;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    color: #34495e;
+}
+
+footer {
+    margin-top: 2rem;
+    font-size: .9rem;
+    color: #666;
+}
