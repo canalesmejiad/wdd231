@@ -430,3 +430,14 @@ select:focus-visible {
 .social-icon span[aria-hidden="true"] {
     color: #ffffff;
 }
+
+.social-github {
+    background: #000000;
+}
+
+.social-github img {
+    width: 22px;
+    height: 22px;
+    filter: brightness(0) invert(1);
+    display: block;
+}
