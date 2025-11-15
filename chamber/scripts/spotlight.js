@@ -2,45 +2,57 @@ const spotlightContainer = document.querySelector("#spotlight-grid");
 
 async function loadSpotlights() {
     try {
-        const response = await fetch("./data/members.json");
+        const res = await fetch("./data/members.json");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
 
-        if (!response.ok) {
-            throw new Error("Error loading members.json");
-        }
+        const members = data.members || data;
 
-        const data = await response.json();
-        const members = data.members || data; // por si es un array directo
-
-        // Filtrar solo gold y silver
-        const eligible = members.filter(member => {
-            const level = (member.membership || member.membershipLevel || "").toLowerCase();
+        const eligible = members.filter(m => {
+            const level = (m.membership || "").toLowerCase();
             return level === "gold" || level === "silver";
         });
 
-        if (eligible.length === 0) return;
+        if (eligible.length === 0) {
+            spotlightContainer.innerHTML = "<p>No spotlight members found.</p>";
+            return;
+        }
 
-        const selected = getRandomMembers(eligible, 3);
+        const shuffled = [...eligible];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+
+        const selected = shuffled.slice(0, 3);
 
         spotlightContainer.innerHTML = "";
 
-        selected.forEach(member => {
+        selected.forEach(m => {
             const card = document.createElement("article");
             card.classList.add("spotlight-card");
 
+            const src = `./images/${m.image}`;
+
             card.innerHTML = `
-                <div class="spotlight-header">
-                    <img src="${member.image}" alt="${member.name} logo" class="card-logo">
+                <div class="spotlight-logo-wrap">
+                    <img class="spotlight-logo" src="${src}" alt="${m.name} logo">
                 </div>
                 <div class="spotlight-body">
-                    <h3>${member.name}</h3>
-                    <p class="spotlight-meta">${member.membership || member.membershipLevel} Member</p>
-                    <p>${member.address}</p>
-                    <p>${member.phone}</p>
-                    <a href="${member.website}" class="text-link" target="_blank" rel="noopener">
-                        Visit website &rarr;
-                    </a>
+                    <h3>${m.name}</h3>
+                    <p class="spotlight-tagline">${m.membership} Member</p>
+                    <p>Vancouver, WA</p>
+                    <p>${m.phone || ""}</p>
+                    <p>
+                        <a href="${m.website}" target="_blank" rel="noopener">
+                            Visit website →
+                        </a>
+                    </p>
                 </div>
             `;
+
+            const img = card.querySelector("img");
+            img.onerror = () => { img.src = "./images/placeholder-logo.png"; };
 
             spotlightContainer.appendChild(card);
         });
@@ -50,14 +62,8 @@ async function loadSpotlights() {
     }
 }
 
-function getRandomMembers(list, maxCount) {
-    const copy = [...list];
-    for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
-    }
-    const count = Math.min(maxCount, copy.length);
-    return copy.slice(0, count);
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadSpotlights);
+} else {
+    loadSpotlights();
 }
-
-loadSpotlights();
