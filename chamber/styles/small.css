@@ -264,7 +264,7 @@ select:focus {
 
 .cards.grid {
     grid-template-columns: 1fr;
-    
+
 }
 
 .card {
@@ -515,4 +515,30 @@ select:focus-visible {
 
 .text-link:hover {
     text-decoration: underline;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.forecast-day {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 8px;
+    text-align: center;
+    background-color: var(--bg-alt);
+}
+
+.forecast-label {
+    margin: 0 0 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.forecast-temp {
+    margin: 0;
+    font-size: 1rem;
 }

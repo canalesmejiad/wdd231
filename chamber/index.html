@@ -47,7 +47,6 @@
     </header>
 
     <main id="main">
-        <!-- HERO + CTA -->
         <section class="hero">
             <div class="hero-content">
                 <h1>Vancouver Chamber of Commerce</h1>
@@ -62,7 +61,6 @@
             </figure>
         </section>
 
-        <!-- CURRENT EVENTS -->
         <section class="home-section events">
             <h2>Current Events</h2>
             <ul class="event-list">
@@ -84,7 +82,6 @@
             </ul>
         </section>
 
-        <!-- WEATHER -->
         <section class="home-section weather">
             <h2>Current Weather</h2>
             <p class="weather-location">Vancouver, Washington</p>
@@ -92,34 +89,12 @@
                 <span id="weather-temp">--°F</span>
                 <span id="weather-desc">Loading weather...</span>
             </p>
+            <div id="forecast" class="forecast-grid"></div>
         </section>
 
-        <!-- SPOTLIGHTS -->
         <section class="home-section spotlights">
             <h2>Member Spotlights</h2>
-            <div class="spotlight-grid">
-                <article class="spotlight-card">
-                    <h3>Riverfront Café</h3>
-                    <p>Local coffee shop offering fresh roasted coffee and community meetups along the waterfront.</p>
-                    <p class="spotlight-meta">Category: Food &amp; Beverage</p>
-                    <a href="#" class="text-link">Visit website &rarr;</a>
-                </article>
-
-                <article class="spotlight-card">
-                    <h3>Vancouver Tech Solutions</h3>
-                    <p>IT services and cloud solutions helping small businesses stay secure and productive.</p>
-                    <p class="spotlight-meta">Category: Technology</p>
-                    <a href="#" class="text-link">Visit website &rarr;</a>
-                </article>
-
-                <article class="spotlight-card">
-                    <h3>GreenBuild Contractors</h3>
-                    <p>Sustainable construction company focused on energy-efficient commercial and residential projects.
-                    </p>
-                    <p class="spotlight-meta">Category: Construction</p>
-                    <a href="#" class="text-link">Visit website &rarr;</a>
-                </article>
-            </div>
+            <div class="spotlight-grid" id="spotlight-grid"></div>
         </section>
     </main>
 
@@ -131,7 +106,8 @@
     </footer>
 
     <script src="./scripts/nav.js" defer></script>
-    <!-- Más adelante puedes añadir scripts como weather.js o spotlights.js -->
+    <script src="./scripts/weather.js" defer></script>
+    <script src="./scripts/spotlights.js" defer></script>
 </body>
 
 </html>
