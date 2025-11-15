@@ -1,4 +1,4 @@
-/* Vistas más grandes / desktop */
+
 
 @media (min-width: 700px) {
     main {
@@ -33,7 +33,7 @@
     }
 }
 
-/* Grid de tarjetas del directorio en 2 y 3 columnas */
+
 
 @media (min-width: 650px) {
     .cards.grid {
