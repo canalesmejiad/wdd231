@@ -81,10 +81,15 @@
             <section class="home-section current-weather">
                 <h2>Current Weather</h2>
                 <p class="weather-location">Vancouver, Washington</p>
-                <p class="weather-info">
-                    <span id="weather-temp">--°F</span>
-                    <span id="weather-desc">Loading weather...</span>
-                </p>
+            
+                <div class="weather-main">
+                    <div class="weather-temp-wrap">
+                        <span id="weather-temp">--°F</span>
+                    </div>
+                    <img id="weather-icon" class="weather-icon" src="" alt="" loading="lazy">
+                </div>
+            
+                <p id="weather-desc" class="weather-desc">Loading weather...</p>
             </section>
 
             <section class="home-section forecast">

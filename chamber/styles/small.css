@@ -128,7 +128,7 @@ main {
 
 .hero-content p {
     margin: 0;
-    color: var(--text-muted);
+    color: #000000;
 }
 
 .hero-actions {
@@ -245,6 +245,30 @@ main {
     flex-direction: column;
     gap: 0.2rem;
     font-size: 0.95rem;
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.weather-temp-wrap span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.weather-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.weather-desc {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-main);
 }
 
 /* Pronóstico */
@@ -398,16 +422,11 @@ select:focus-visible {
     border-radius: 6px;
 }
 
-/* ---- CONTRAST FIXES ---- */
 .weather-location,
-.spotlight-tagline,
-p {
-    color: #374151;
+.spotlight-card p {
+    color: #111827;
 }
 
-button,
-.btn,
-a.btn,
-a {
-    color: #1d4ed8;
+.social-icon span[aria-hidden="true"] {
+    color: #ffffff;
 }
