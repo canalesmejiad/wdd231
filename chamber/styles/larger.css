@@ -1,6 +1,5 @@
 @media (min-width: 768px) {
 
-    /* HERO: two columns */
     .hero {
         grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
         align-items: center;
@@ -11,18 +10,15 @@
         max-height: 260px;
     }
 
-    /* HOME GRID: 3 columnas (events, current weather, forecast) */
     .home-grid {
         grid-template-columns: 2fr 1.2fr 1.2fr;
         align-items: stretch;
     }
 
-    /* SPOTLIGHTS: 3 columnas */
     .spotlight-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    /* DIRECTORY TOOLBAR */
     .toolbar {
         grid-template-columns: 2fr auto auto;
         align-items: center;
@@ -32,12 +28,10 @@
         max-width: 320px;
     }
 
-    /* DIRECTORY GRID */
     .cards.grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    /* FOOTER: 3 columnas */
     .footer-grid {
         grid-template-columns: 2fr 1.2fr 2fr;
         align-items: flex-start;
