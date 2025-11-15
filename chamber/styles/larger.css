@@ -1,65 +1,45 @@
-@media (min-width: 700px) {
-    .site-header {
-        padding: 16px 32px;
-    }
+@media (min-width: 768px) {
 
-    .menu-toggle {
-        display: none;
-    }
-
-    .site-nav {
-        display: flex !important;
-        gap: 18px;
-    }
-
-    main {
-        padding: 0 24px 40px;
-    }
-
-    .hero {
-        padding: 28px 24px 32px;
-        margin: 0 -24px 12px;
-    }
-}
-
-@media (min-width: 900px) {
+    /* HERO: two columns */
     .hero {
         grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
         align-items: center;
+        padding: 22px 24px;
     }
 
     .hero-image-wrap {
-        justify-self: end;
+        max-height: 260px;
     }
 
-    .hero-content {
-        max-width: 460px;
-    }
-
+    /* HOME GRID: 3 columnas (events, current weather, forecast) */
     .home-grid {
         grid-template-columns: 2fr 1.2fr 1.2fr;
         align-items: stretch;
     }
 
+    /* SPOTLIGHTS: 3 columnas */
     .spotlight-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    /* DIRECTORY TOOLBAR */
+    .toolbar {
+        grid-template-columns: 2fr auto auto;
+        align-items: center;
+    }
+
+    .search-wrap {
+        max-width: 320px;
+    }
+
+    /* DIRECTORY GRID */
+    .cards.grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* FOOTER: 3 columnas */
     .footer-grid {
-        grid-template-columns: 2fr 1.5fr 2fr;
+        grid-template-columns: 2fr 1.2fr 2fr;
         align-items: flex-start;
-        text-align: left;
-    }
-
-    .footer-block {
-        text-align: left;
-    }
-
-    .footer-social {
-        align-items: flex-start;
-    }
-
-    .social-links {
-        justify-content: flex-start;
     }
 }
