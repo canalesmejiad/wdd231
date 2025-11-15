@@ -1,36 +1,62 @@
-/* Desktop layout */
+@media (min-width: 700px) {
+    .site-header {
+        padding: 16px 32px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .site-nav {
+        display: flex !important;
+        gap: 18px;
+    }
+
+    main {
+        padding: 0 24px 40px;
+    }
+
+    .hero {
+        padding: 28px 24px 32px;
+        margin: 0 -24px 12px;
+    }
+}
 
 @media (min-width: 900px) {
-
-    /* HERO */
     .hero {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
         align-items: center;
     }
 
-    /* HOME GRID */
-    .home-grid {
-        grid-template-columns: 2fr 1fr 1fr;
+    .hero-image-wrap {
+        justify-self: end;
     }
 
-    /* SPOTLIGHTS */
+    .hero-content {
+        max-width: 460px;
+    }
+
+    .home-grid {
+        grid-template-columns: 2fr 1.2fr 1.2fr;
+        align-items: stretch;
+    }
+
     .spotlight-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* FOOTER */
-    .footer-inner {
-        flex-direction: row;
-        justify-content: space-between;
+    .footer-grid {
+        grid-template-columns: 2fr 1.5fr 2fr;
+        align-items: flex-start;
         text-align: left;
     }
 
     .footer-block {
-        flex: 1 1 0;
+        text-align: left;
     }
 
-    .footer-meta {
-        text-align: right;
+    .footer-social {
+        align-items: flex-start;
     }
 
     .social-links {

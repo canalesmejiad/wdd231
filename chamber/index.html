@@ -107,41 +107,46 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-inner">
-
-            <section class="footer-block footer-contact">
+        <div class="footer-grid">
+            <section class="footer-block footer-brand">
                 <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
-                <p>123 Main Street</p>
-                <p>Vancouver, WA 98660</p>
-                <p>info@vancouverchamber.org</p>
-                <p>(360) 555-1234</p>
+                <address class="footer-address">
+                    123 Main Street<br>
+                    Vancouver, WA 98660<br>
+                    <a href="mailto:info@vancouverchamber.org">info@vancouverchamber.org</a><br>
+                    <a href="tel:+13605551234">(360) 555-1234</a>
+                </address>
             </section>
 
             <section class="footer-block footer-social">
                 <h2 class="footer-heading">Connect With Us</h2>
                 <div class="social-links">
-                    <a href="#" aria-label="YouTube" class="social-icon">YouTube</a>
-                    <a href="#" aria-label="Twitter" class="social-icon">Twitter</a>
-                    <a href="#" aria-label="LinkedIn" class="social-icon">LinkedIn</a>
+                    <a href="#" class="social-icon social-youtube" aria-label="YouTube">
+                        <span aria-hidden="true">▶</span>
+                        <span class="visually-hidden">YouTube</span>
+                    </a>
+                    <a href="#" class="social-icon social-twitter" aria-label="Twitter">
+                        <span aria-hidden="true">𝕏</span>
+                        <span class="visually-hidden">Twitter</span>
+                    </a>
+                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn">
+                        <span aria-hidden="true">in</span>
+                        <span class="visually-hidden">LinkedIn</span>
+                    </a>
                 </div>
             </section>
 
             <section class="footer-block footer-meta">
-                <p class="footer-main">
-                    © <span id="year"></span> Vancouver Chamber of Commerce • WDD 231 Project • David Canales
-                </p>
-                <p class="footer-sub">
-                    Last Modified: <time id="lastmod" datetime="">Loading…</time>
-                </p>
+                <p>© <span id="year"></span> Vancouver Chamber of Commerce</p>
+                <p>WDD 231 Project • David Canales</p>
+                <p>Last Modified: <time id="lastmod" datetime="">Loading…</time></p>
             </section>
-
         </div>
     </footer>
 
     <script src="scripts/nav.js" defer></script>
     <script src="scripts/weather.js" defer></script>
     <script src="scripts/spotlight.js" defer></script>
-    <script src="scripts/date.js" defer></script>
 </body>
 
 </html>
