@@ -1,152 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="David Canales">
-    <meta name="description"
-        content="Connect with local businesses, events, and opportunities through the Vancouver Chamber of Commerce.">
-    <title>Home | Vancouver Chamber</title>
-
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./styles/normalize.css">
-    <link rel="stylesheet" href="./styles/small.css">
-    <link rel="stylesheet" href="./styles/larger.css">
-
-    <meta property="og:title" content="Vancouver Chamber | Home">
-    <meta property="og:description"
-        content="Discover how the Vancouver Chamber connects businesses, supports growth, and strengthens the local community.">
-    <meta property="og:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-image.jpg">
-    <meta property="og:url" content="https://canalesmejiad.github.io/wdd231/chamber/index.html">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vancouver Chamber | Home">
-    <meta name="twitter:description"
-        content="Connect with local businesses, events, and opportunities through the Vancouver Chamber of Commerce.">
-    <meta name="twitter:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-image.jpg">
-</head>
-
-<body>
-    <header class="site-header">
-        <img src="images/logo.jpg" alt="Vancouver Chamber logo" class="logo">
-        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-        <nav class="site-nav" aria-label="Main navigation">
-            <a href="./index.html" class="active" aria-current="page">Home</a>
-            <a href="./discover.html">Discover</a>
-            <a href="./directory.html">Directory</a>
-            <a href="./join.html">Join</a>
-        </nav>
-    </header>
-
-    <main id="main">
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Vancouver Chamber of Commerce</h2>
-                <p>Supporting local businesses, building connections, and strengthening our community in Vancouver.</p>
-                <div class="hero-actions">
-                    <a class="btn primary" href="./join.html">Become a Member</a>
-                    <a class="btn secondary" href="./directory.html">View Business Directory</a>
-                </div>
-            </div>
-            <figure class="hero-image-wrap">
-                <img src="images/logo.jpg" alt="Downtown Vancouver business district">
-            </figure>
+<footer class="site-footer">
+    <div class="footer-grid">
+        <section class="footer-block footer-brand">
+            <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
+            <address class="footer-address">
+                123 Main Street<br>
+                Vancouver, WA 98660<br>
+                <a href="mailto:info@vancouverchamber.org">info@vancouverchamber.org</a><br>
+                <a href="tel:+13605551234">(360) 555-1234</a>
+            </address>
         </section>
 
-        <h1 class="page-title">Home</h1>
-
-        <div class="home-grid">
-            <section class="home-section events">
-                <h2>Events</h2>
-                <ul class="event-list">
-                    <li>
-                        <h3>Business Networking Mixer</h3>
-                        <p><strong>Date:</strong> February 28</p>
-                        <p><strong>Location:</strong> Vancouver Community Center</p>
-                    </li>
-                    <li>
-                        <h3>Small Business Workshop</h3>
-                        <p><strong>Date:</strong> March 5</p>
-                        <p><strong>Topic:</strong> Digital Marketing Essentials</p>
-                    </li>
-                    <li>
-                        <h3>New Member Orientation</h3>
-                        <p><strong>Date:</strong> March 12</p>
-                        <p><strong>Audience:</strong> New and prospective chamber members</p>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="home-section current-weather">
-                <h2>Current Weather</h2>
-                <p class="weather-location">Vancouver, Washington</p>
-                <p class="weather-info">
-                    <span id="weather-temp">--°F</span>
-                    <span id="weather-desc">Loading weather...</span>
-                </p>
-            </section>
-
-            <section class="home-section forecast">
-                <h2>Weather Forecast</h2>
-                <div id="forecast" class="forecast-grid"></div>
-            </section>
-        </div>
-
-        <section class="home-section spotlights">
-            <h2>Member Spotlights</h2>
-            <div class="spotlight-grid" id="spotlight-grid"></div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-grid">
-            <section class="footer-block footer-brand">
-                <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
-                <address class="footer-address">
-                    123 Main Street<br>
-                    Vancouver, WA 98660<br>
-                    <a href="mailto:info@vancouverchamber.org">info@vancouverchamber.org</a><br>
-                    <a href="tel:+13605551234">(360) 555-1234</a>
-                </address>
-            </section>
-
-            <section class="footer-block footer-social">
-                <h2 class="footer-heading">Connect With Us</h2>
-                <div class="social-links">
-                    <a href="#" class="social-icon social-youtube" aria-label="YouTube">
-                        <span aria-hidden="true">▶</span>
-                        <span class="visually-hidden">YouTube</span>
-                    </a>
-                    <a href="#" class="social-icon social-twitter" aria-label="Twitter">
-                        <span aria-hidden="true">𝕏</span>
-                        <span class="visually-hidden">Twitter</span>
-                    </a>
-                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn">
-                        <span aria-hidden="true">in</span>
-                        <span class="visually-hidden">LinkedIn</span>
-                    </a>
-                </div>
-            </section>
-
-            <div class="footer-block footer-meta">
-                <p>© <span id="year"></span> Vancouver Chamber of Commerce</p>
-                <p>WDD 231 Project • David Canales</p>
-                <p>Last Modified: <time id="lastmod" datetime="2025-01-01T00:00:00">Loading…</time></p>
+        <section class="footer-block footer-social">
+            <h2 class="footer-heading">Connect With Us</h2>
+            <div class="social-links">
+                <a href="#" class="social-icon social-youtube" aria-label="YouTube">
+                    <span aria-hidden="true">▶</span>
+                    <span class="visually-hidden">YouTube</span>
+                </a>
+                <a href="#" class="social-icon social-twitter" aria-label="Twitter">
+                    <span aria-hidden="true">𝕏</span>
+                    <span class="visually-hidden">Twitter</span>
+                </a>
+                <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn">
+                    <span aria-hidden="true">in</span>
+                    <span class="visually-hidden">LinkedIn</span>
+                </a>
             </div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="scripts/nav.js" defer></script>
-    <script src="scripts/weather.js" defer></script>
-    <script src="scripts/spotlight.js" defer></script>
+        <section class="footer-block footer-meta">
+            <p>© <span id="year"></span> Vancouver Chamber of Commerce</p>
+            <p>WDD 231 Project • David Canales</p>
+            <p>Last Modified: <time id="lastmod" datetime="">Loading…</time></p>
+        </section>
+    </div>
+</footer>
+
+<script src="scripts/nav.js" defer></script>
+<script src="scripts/weather.js" defer></script>
+<script src="scripts/spotlight.js" defer></script>
 </body>
 
 </html>
