@@ -1,56 +1,39 @@
-/* HERO en dos columnas en pantallas grandes */
+/* Desktop layout */
 
 @media (min-width: 900px) {
+
+    /* HERO */
     .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        grid-template-columns: 1fr 1fr;
         align-items: center;
-        gap: 24px;
-        padding: 24px;
-        max-width: 1100px;
-        margin: 16px auto 24px;
     }
 
-    .page-title {
-        max-width: 1100px;
-        margin: 0 auto 8px;
-        padding: 0;
-        font-size: 1.6rem;
-    }
-
+    /* HOME GRID */
     .home-grid {
-        max-width: 1100px;
-        margin: 0 auto 24px;
-        padding: 0;
-        display: grid;
         grid-template-columns: 2fr 1fr 1fr;
-        gap: 16px;
     }
 
-    .home-section {
-        height: 100%;
-    }
-
+    /* SPOTLIGHTS */
     .spotlight-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .weather-info {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-/* BREAKPOINTS EXTRA PARA DIRECTORY CARDS */
-
-@media (min-width: 650px) {
-    .cards.grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 980px) {
-    .cards.grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* FOOTER */
+    .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-block {
+        flex: 1 1 0;
+    }
+
+    .footer-meta {
+        text-align: right;
+    }
+
+    .social-links {
+        justify-content: flex-start;
     }
 }
