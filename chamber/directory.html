@@ -5,33 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="David Canales">
-    <meta name="description"
-        content="Explore local businesses in Vancouver through the official Chamber of Commerce directory.">
+    <meta name="description" content="Business directory for the Vancouver Chamber of Commerce.">
     <title>Business Directory | Vancouver Chamber</title>
 
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/small.css">
-    <link rel="stylesheet" href="styles/larger.css">
-
-    <meta property="og:title" content="Vancouver Chamber | Business Directory">
-    <meta property="og:description"
-        content="Discover trusted local businesses, services, and organizations in Vancouver through the official Chamber of Commerce business directory.">
-    <meta property="og:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-image.jpg">
-    <meta property="og:url" content="https://canalesmejiad.github.io/wdd231/chamber/directory.html">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vancouver Chamber | Business Directory">
-    <meta name="twitter:description"
-        content="Explore Vancouver's trusted local businesses and services in the official Chamber of Commerce directory.">
-    <meta name="twitter:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-image.jpg">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/directory.css">
 </head>
 
 <body>
@@ -39,16 +23,16 @@
         <img src="images/logo.jpg" alt="Vancouver Chamber logo" class="logo">
         <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         <nav class="site-nav" aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="discover.html">Discover</a>
-            <a href="directory.html" class="active" aria-current="page">Directory</a>
-            <a href="join.html">Join</a>
+            <a href="./index.html">Home</a>
+            <a href="./discover.html">Discover</a>
+            <a href="./directory.html" class="active" aria-current="page">Directory</a>
+            <a href="./join.html">Join</a>
         </nav>
     </header>
 
     <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li aria-current="page">Directory</li>
         </ol>
     </nav>
@@ -58,14 +42,17 @@
 
         <section class="toolbar">
             <h2 class="visually-hidden">Business Directory Tools</h2>
+
             <div class="search-wrap">
                 <label for="q" class="visually-hidden">Search businesses</label>
                 <input id="q" type="search" placeholder="Search by name or category…">
             </div>
-            <div class="view-toggle">
+
+            <div class="view-toggle" aria-label="View mode">
                 <button id="gridBtn" class="toggle active" aria-pressed="true">Grid</button>
                 <button id="listBtn" class="toggle" aria-pressed="false">List</button>
             </div>
+
             <div class="filters">
                 <label>
                     Category:
@@ -78,6 +65,7 @@
                         <option value="Services">Services</option>
                     </select>
                 </label>
+
                 <label>
                     Membership:
                     <select id="levelFilter">
@@ -107,45 +95,14 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-grid">
-            <section class="footer-block footer-brand">
-                <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
-                <address class="footer-address">
-                    123 Main Street<br>
-                    Vancouver, WA 98660<br>
-                    <a href="mailto:info@vancouverchamber.org">info@vancouverchamber.org</a><br>
-                    <a href="tel:+13605551234">(360) 555-1234</a>
-                </address>
-            </section>
-
-            <section class="footer-block footer-social">
-                <h2 class="footer-heading">Connect With Us</h2>
-                <div class="social-links">
-                    <a href="#" class="social-icon social-youtube" aria-label="YouTube">
-                        <span aria-hidden="true">▶</span>
-                        <span class="visually-hidden">YouTube</span>
-                    </a>
-                    <a href="#" class="social-icon social-twitter" aria-label="Twitter">
-                        <span aria-hidden="true">𝕏</span>
-                        <span class="visually-hidden">Twitter</span>
-                    </a>
-                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn">
-                        <span aria-hidden="true">in</span>
-                        <span class="visually-hidden">LinkedIn</span>
-                    </a>
-                </div>
-            </section>
-
-            <section class="footer-block footer-meta">
-                <p>© <span id="year"></span> Vancouver Chamber of Commerce</p>
-                <p>WDD 231 Project • David Canales</p>
-                <p>Last Modified: <time id="lastmod" datetime="">Loading…</time></p>
-            </section>
-        </div>
+        <p>
+            © <span id="year"></span> Vancouver Chamber of Commerce • Last Modified:
+            <time id="lastmod" datetime="">Loading…</time>
+        </p>
     </footer>
 
-    <script src="scripts/nav.js" defer></script>
-    <script src="scripts/directory.js" defer></script>
+    <script src="./scripts/nav.js" defer></script>
+    <script src="./scripts/directory.js" defer></script>
 </body>
 
 </html>
