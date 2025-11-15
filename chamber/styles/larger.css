@@ -1,24 +1,41 @@
 @media (min-width: 768px) {
+    .site-header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .site-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+        margin-left: auto;
+    }
+
     .hero {
         flex-direction: row;
         align-items: center;
+        padding: 2rem;
+    }
+
+    .hero-image-wrap img {
+        max-width: 320px;
     }
 
     .home-grid {
-        display: grid;
         grid-template-columns: 2fr 1fr 1fr;
-        gap: 1rem;
-        padding: 2rem;
     }
 
     .spotlight-grid {
-        grid-template-columns: repeat(3, 1fr);
-        padding: 2rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .footer-grid {
-        grid-template-columns: 2fr 1fr 1fr;
-        align-items: start;
-        padding: 2rem;
+        grid-template-columns: 2fr 1fr 1.4fr;
+        align-items: flex-start;
     }
 }
