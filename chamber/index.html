@@ -21,17 +21,10 @@
 
     <meta property="og:title" content="Vancouver Chamber | Home">
     <meta property="og:description"
-        content="Discover how the Vancouver Chamber connects businesses, supports growth, and strengthens the local community.">
+        content="Discover how the Vancouver Chamber connects businesses and supports local growth.">
     <meta property="og:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-image.jpg">
     <meta property="og:url" content="https://canalesmejiad.github.io/wdd231/chamber/index.html">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vancouver Chamber | Home">
-    <meta name="twitter:description"
-        content="Connect with local businesses, events, and opportunities through the Vancouver Chamber of Commerce.">
-    <meta name="twitter:image" content="https://canalesmejiad.github.io/wdd231/chamber/images/og-image.jpg">
 </head>
 
 <body>
@@ -88,13 +81,15 @@
             <section class="home-section current-weather">
                 <h2>Current Weather</h2>
                 <p class="weather-location">Vancouver, Washington</p>
-                <div class="weather-info">
-                    <span id="weather-temp">--°F</span>
-                    <img id="weather-icon" class="weather-icon"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9YxNm3cAAAAASUVORK5CYII="
-                        alt="Weather icon" loading="lazy">
-                    <span id="weather-desc">Loading weather...</span>
+            
+                <div class="weather-main">
+                    <div class="weather-temp-wrap">
+                        <span id="weather-temp">--°F</span>
+                    </div>
+                    <img id="weather-icon" class="weather-icon" src="" alt="" loading="lazy">
                 </div>
+            
+                <p id="weather-desc" class="weather-desc">Loading weather...</p>
             </section>
 
             <section class="home-section forecast">
@@ -124,31 +119,20 @@
             <section class="footer-block footer-social">
                 <h2 class="footer-heading">Connect With Us</h2>
                 <div class="social-links">
-                    <a href="#" class="social-icon social-youtube" aria-label="YouTube">
-                        <span aria-hidden="true">▶</span>
-                        <span class="visually-hidden">YouTube</span>
-                    </a>
-                    <a href="#" class="social-icon social-twitter" aria-label="Twitter">
-                        <span aria-hidden="true">𝕏</span>
-                        <span class="visually-hidden">Twitter</span>
-                    </a>
-                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn">
-                        <span aria-hidden="true">in</span>
-                        <span class="visually-hidden">LinkedIn</span>
-                    </a>
+                    <a href="#" class="social-icon social-youtube" aria-label="YouTube"><span
+                            aria-hidden="true">▶</span></a>
+                    <a href="#" class="social-icon social-twitter" aria-label="Twitter"><span
+                            aria-hidden="true">𝕏</span></a>
+                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn"><span
+                            aria-hidden="true">in</span></a>
                 </div>
             </section>
 
-            <section class="footer-block footer-meta">
+            <div class="footer-block footer-meta">
                 <p>© <span id="year"></span> Vancouver Chamber of Commerce</p>
                 <p>WDD 231 Project • David Canales</p>
-                <p>
-                    Last Modified:
-                    <time id="lastmod" datetime="2025-01-01T00:00:00">
-                        2025-01-01T00:00:00
-                    </time>
-                </p>
-            </section>
+                <p>Last Modified: <time id="lastmod">2025-01-01T00:00:00</time></p>
+            </div>
         </div>
     </footer>
 
