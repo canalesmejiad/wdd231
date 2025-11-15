@@ -397,3 +397,16 @@ select:focus-visible {
     outline-offset: 2px;
     border-radius: 6px;
 }
+
+.weather-location,
+.spotlight-tagline,
+p {
+    color: #374151;
+}
+
+button,
+.btn,
+a.btn,
+a {
+    color: #1d4ed8;
+}
