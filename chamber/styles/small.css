@@ -398,6 +398,7 @@ select:focus-visible {
     border-radius: 6px;
 }
 
+/* ---- CONTRAST FIXES ---- */
 .weather-location,
 .spotlight-tagline,
 p {
