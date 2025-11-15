@@ -15,9 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/small.css">
-    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/small.css">
+    <link rel="stylesheet" href="./styles/larger.css">
 
     <meta property="og:title" content="Vancouver Chamber | Home">
     <meta property="og:description"
@@ -47,6 +47,7 @@
     </header>
 
     <main id="main">
+        <!-- HERO -->
         <section class="hero">
             <div class="hero-content">
                 <h1>Vancouver Chamber of Commerce</h1>
@@ -57,41 +58,55 @@
                 </div>
             </div>
             <figure class="hero-image-wrap">
-                <img src="./images/hero-vancouver.jpg" alt="Downtown Vancouver business district">
+                <img src="images/logo.jpg" alt="Downtown Vancouver business district">
             </figure>
         </section>
 
-        <section class="home-section events">
-            <h2>Current Events</h2>
-            <ul class="event-list">
-                <li>
-                    <h3>Business Networking Mixer</h3>
-                    <p><strong>Date:</strong> February 28</p>
-                    <p><strong>Location:</strong> Vancouver Community Center</p>
-                </li>
-                <li>
-                    <h3>Small Business Workshop</h3>
-                    <p><strong>Date:</strong> March 5</p>
-                    <p><strong>Topic:</strong> Digital Marketing Essentials</p>
-                </li>
-                <li>
-                    <h3>New Member Orientation</h3>
-                    <p><strong>Date:</strong> March 12</p>
-                    <p><strong>Audience:</strong> New and prospective chamber members</p>
-                </li>
-            </ul>
+        <!-- TITULO HOME -->
+        <h1 class="page-title">Home</h1>
+
+        <!-- GRID: EVENTS + CURRENT WEATHER + FORECAST -->
+        <section class="home-grid">
+            <!-- EVENTS -->
+            <section class="home-section events">
+                <h2>Events</h2>
+                <ul class="event-list">
+                    <li>
+                        <h3>Business Networking Mixer</h3>
+                        <p><strong>Date:</strong> February 28</p>
+                        <p><strong>Location:</strong> Vancouver Community Center</p>
+                    </li>
+                    <li>
+                        <h3>Small Business Workshop</h3>
+                        <p><strong>Date:</strong> March 5</p>
+                        <p><strong>Topic:</strong> Digital Marketing Essentials</p>
+                    </li>
+                    <li>
+                        <h3>New Member Orientation</h3>
+                        <p><strong>Date:</strong> March 12</p>
+                        <p><strong>Audience:</strong> New and prospective chamber members</p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- CURRENT WEATHER -->
+            <section class="home-section current-weather">
+                <h2>Current Weather</h2>
+                <p class="weather-location">Vancouver, Washington</p>
+                <p class="weather-info">
+                    <span id="weather-temp">--°F</span>
+                    <span id="weather-desc">Loading weather...</span>
+                </p>
+            </section>
+
+            <!-- WEATHER FORECAST -->
+            <section class="home-section forecast">
+                <h2>Weather Forecast</h2>
+                <div id="forecast" class="forecast-grid"></div>
+            </section>
         </section>
 
-        <section class="home-section weather">
-            <h2>Current Weather</h2>
-            <p class="weather-location">Vancouver, Washington</p>
-            <p class="weather-info">
-                <span id="weather-temp">--°F</span>
-                <span id="weather-desc">Loading weather...</span>
-            </p>
-            <div id="forecast" class="forecast-grid"></div>
-        </section>
-
+        <!-- SPOTLIGHTS -->
         <section class="home-section spotlights">
             <h2>Member Spotlights</h2>
             <div class="spotlight-grid" id="spotlight-grid"></div>
