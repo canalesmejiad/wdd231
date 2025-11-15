@@ -1,60 +1,92 @@
-const apiKey = "e79e1f9cc7e88835f4807ae6a7716d6c"; 
-const lat = 45.6387; // Vancouver, WA
+const apiKey = "e79e1f9cc7e88835f4807ae6a7716d6c";
+const lat = 45.6387;
 const lon = -122.6615;
-const units = "imperial"; // °F
+const units = "imperial";
 
-const tempEl = document.querySelector("#weather-temp");
-const descEl = document.querySelector("#weather-desc");
-const forecastEl = document.querySelector("#forecast");
+const tempEl = document.getElementById("weather-temp");
+const descEl = document.getElementById("weather-desc");
+const iconEl = document.getElementById("weather-icon");
+const forecastEl = document.getElementById("forecast");
 
-async function getWeather() {
-    const currentUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
-
-    const [currentResponse, forecastResponse] = await Promise.all([
-        fetch(currentUrl),
-        fetch(forecastUrl)
-    ]);
-
-    if (!currentResponse.ok || !forecastResponse.ok) {
-        tempEl.textContent = "N/A";
-        descEl.textContent = "Weather unavailable";
-        return;
-    }
-
-    const currentData = await currentResponse.json();
-    const forecastData = await forecastResponse.json();
-
-    const temp = Math.round(currentData.main.temp);
-    const description = currentData.weather[0].description;
-
-    tempEl.textContent = `${temp}°F`;
-    descEl.textContent = description.charAt(0).toUpperCase() + description.slice(1);
-
-    buildForecast(forecastData.list);
+async function getCurrentWeather() {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Weather error");
+    return await res.json();
 }
 
-function buildForecast(list) {
+async function getForecast() {
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Forecast error");
+    return await res.json();
+}
+
+function renderCurrentWeather(data) {
+    const temp = Math.round(data.main.temp);
+    const desc = data.weather[0].description || "";
+    const iconCode = data.weather[0].icon;
+
+    const unitLabel = units === "metric" ? "°C" : "°F";
+    tempEl.textContent = `${temp}${unitLabel}`;
+    descEl.textContent = desc.replace(/\b\w/g, c => c.toUpperCase());
+
+    if (iconCode && iconEl) {
+        const src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        iconEl.src = src;
+        iconEl.alt = `${desc} icon`;
+    }
+}
+
+function renderForecast(data) {
+    if (!forecastEl) return;
     forecastEl.innerHTML = "";
 
-    // tomar las lecturas alrededor de las 12:00 para los próximos 3 días
-    const middayEntries = list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
+    const byDay = {};
+    data.list.forEach(item => {
+        const date = new Date(item.dt * 1000);
+        const key = date.toISOString().slice(0, 10);
+        const hour = date.getHours();
+        if (!byDay[key] || Math.abs(hour - 12) < Math.abs(byDay[key].hour - 12)) {
+            byDay[key] = { item, hour };
+        }
+    });
 
-    middayEntries.forEach(item => {
-        const date = new Date(item.dt_txt);
+    const keys = Object.keys(byDay).slice(1, 4);
+
+    keys.forEach(key => {
+        const entry = byDay[key].item;
+        const date = new Date(entry.dt * 1000);
         const weekday = date.toLocaleDateString("en-US", { weekday: "short" });
-        const temp = Math.round(item.main.temp);
+        const temp = Math.round(entry.main.temp);
+        const unitLabel = units === "metric" ? "°C" : "°F";
 
-        const card = document.createElement("div");
-        card.classList.add("forecast-day");
-
-        card.innerHTML = `
-            <p class="forecast-label">${weekday}</p>
-            <p class="forecast-temp">${temp}°F</p>
+        const div = document.createElement("div");
+        div.className = "forecast-day";
+        div.innerHTML = `
+            <span>${weekday}</span>
+            <span>${temp}${unitLabel}</span>
         `;
-
-        forecastEl.appendChild(card);
+        forecastEl.appendChild(div);
     });
 }
 
-getWeather();
+async function initWeather() {
+    try {
+        const [current, forecast] = await Promise.all([
+            getCurrentWeather(),
+            getForecast()
+        ]);
+        renderCurrentWeather(current);
+        renderForecast(forecast);
+    } catch (err) {
+        if (descEl) descEl.textContent = "Unable to load weather.";
+        console.error(err);
+    }
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initWeather);
+} else {
+    initWeather();
+}
