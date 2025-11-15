@@ -9,14 +9,15 @@
         content="Explore local businesses in Vancouver through the official Chamber of Commerce directory.">
     <title>Business Directory | Vancouver Chamber</title>
 
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./styles/normalize.css">
-    <link rel="stylesheet" href="./styles/directory.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
 
     <meta property="og:title" content="Vancouver Chamber | Business Directory">
     <meta property="og:description"
@@ -38,29 +39,33 @@
         <img src="images/logo.jpg" alt="Vancouver Chamber logo" class="logo">
         <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         <nav class="site-nav" aria-label="Main navigation">
-            <a href="./index.html">Home</a>
-            <a href="./discover.html">Discover</a>
-            <a href="./directory.html" class="active" aria-current="page">Directory</a>
-            <a href="./join.html">Join</a>
+            <a href="index.html">Home</a>
+            <a href="discover.html">Discover</a>
+            <a href="directory.html" class="active" aria-current="page">Directory</a>
+            <a href="join.html">Join</a>
         </nav>
     </header>
 
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Directory</li>
+        </ol>
+    </nav>
+
     <main id="main">
-        <h1 class="page-title">Business Directory</h1>
+        <h1>Business Directory</h1>
 
         <section class="toolbar">
             <h2 class="visually-hidden">Business Directory Tools</h2>
-
             <div class="search-wrap">
                 <label for="q" class="visually-hidden">Search businesses</label>
                 <input id="q" type="search" placeholder="Search by name or category…">
             </div>
-
             <div class="view-toggle">
                 <button id="gridBtn" class="toggle active" aria-pressed="true">Grid</button>
                 <button id="listBtn" class="toggle" aria-pressed="false">List</button>
             </div>
-
             <div class="filters">
                 <label>
                     Category:
@@ -102,29 +107,36 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-inner">
-            <section class="footer-col">
+        <div class="footer-grid">
+            <section class="footer-block footer-brand">
                 <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
-                <p>123 Main Street<br>Vancouver, WA 98660</p>
-                <p>Email: info@vancouverchamber.org<br>Phone: (360) 555-1234</p>
+                <address class="footer-address">
+                    123 Main Street<br>
+                    Vancouver, WA 98660<br>
+                    <a href="mailto:info@vancouverchamber.org">info@vancouverchamber.org</a><br>
+                    <a href="tel:+13605551234">(360) 555-1234</a>
+                </address>
             </section>
 
-            <section class="footer-col">
+            <section class="footer-block footer-social">
                 <h2 class="footer-heading">Connect With Us</h2>
-                <div class="footer-social">
-                    <a href="#" aria-label="YouTube">
-                        <img src="images/icon-youtube.svg" alt="">
+                <div class="social-links">
+                    <a href="#" class="social-icon social-youtube" aria-label="YouTube">
+                        <span aria-hidden="true">▶</span>
+                        <span class="visually-hidden">YouTube</span>
                     </a>
-                    <a href="#" aria-label="Twitter">
-                        <img src="images/icon-twitter.svg" alt="">
+                    <a href="#" class="social-icon social-twitter" aria-label="Twitter">
+                        <span aria-hidden="true">𝕏</span>
+                        <span class="visually-hidden">Twitter</span>
                     </a>
-                    <a href="#" aria-label="LinkedIn">
-                        <img src="images/icon-linkedin.svg" alt="">
+                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn">
+                        <span aria-hidden="true">in</span>
+                        <span class="visually-hidden">LinkedIn</span>
                     </a>
                 </div>
             </section>
 
-            <section class="footer-col footer-meta">
+            <section class="footer-block footer-meta">
                 <p>© <span id="year"></span> Vancouver Chamber of Commerce</p>
                 <p>WDD 231 Project • David Canales</p>
                 <p>Last Modified: <time id="lastmod" datetime="">Loading…</time></p>
@@ -132,9 +144,8 @@
         </div>
     </footer>
 
-    <script src="./scripts/nav.js" defer></script>
-    <script src="./scripts/directory.js" defer></script>
-    <script src="./scripts/date.js" defer></script>
+    <script src="scripts/nav.js" defer></script>
+    <script src="scripts/directory.js" defer></script>
 </body>
 
 </html>
