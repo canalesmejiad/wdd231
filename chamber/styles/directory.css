@@ -132,7 +132,7 @@ img {
     font-weight: 600;
 }
 
-/* MOBILE HEADER */
+/* MOBILE NAV */
 
 @media (max-width: 700px) {
     .menu-toggle {
@@ -208,8 +208,6 @@ select:focus {
     outline: 0;
     box-shadow: 0 0 0 3px rgba(13, 78, 166, 0.25);
 }
-
-/* VIEW TOGGLE */
 
 .view-toggle {
     display: flex;
@@ -382,7 +380,7 @@ select:focus {
     height: 64px;
 }
 
-/* FOOTER (simple, solo para directory) */
+/* FOOTER */
 
 .site-footer {
     margin: 36px 0;
@@ -391,7 +389,7 @@ select:focus {
     font-size: 14px;
 }
 
-/* ACCESSIBILITY */
+/* FOCUS */
 
 a:focus-visible,
 button:focus-visible,
@@ -402,12 +400,16 @@ select:focus-visible {
     border-radius: 10px;
 }
 
+/* REDUCED MOTION */
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation: none !important;
         transition: none !important;
     }
 }
+
+/* VISUALLY HIDDEN */
 
 .visually-hidden {
     position: absolute !important;
