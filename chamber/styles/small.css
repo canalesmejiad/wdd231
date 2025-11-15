@@ -542,3 +542,97 @@ select:focus-visible {
     margin: 0;
     font-size: 1rem;
 }
+
+/* Título de la página Home */
+.page-title {
+    max-width: 1100px;
+    margin: 16px auto 8px;
+    padding: 0 16px;
+    font-size: 1.4rem;
+    color: var(--text-strong);
+}
+
+/* Contenedor de la zona principal: Events + Weather + Forecast */
+.home-grid {
+    max-width: 1100px;
+    margin: 0 auto 16px;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Tarjetas base (ya tenías home-section, refuerzo) */
+.home-section {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+}
+
+/* Encabezado oscuro tipo barra como el wireframe */
+.home-section h2 {
+    margin: -16px -16px 12px;
+    padding: 8px 16px;
+    background: var(--text-strong);
+    color: #fff;
+    border-radius: var(--radius) var(--radius) 0 0;
+    font-size: 1rem;
+}
+
+/* Contenido de eventos */
+.events .event-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.events .event-list li + li {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+/* Weather info */
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#weather-temp {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* Forecast (ya lo teníamos, por si acaso) */
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.forecast-day {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 8px;
+    text-align: center;
+    background-color: var(--bg-alt);
+}
+
+.forecast-label {
+    margin: 0 0 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.forecast-temp {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.spotlight-grid {
+    display: grid;
+    gap: 12px;
+}
