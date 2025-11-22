@@ -4,6 +4,10 @@
     --bg-card: #ffffff;
     --border-soft: #d1d5db;
     --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+    /* Global text color override */
+    --text-main: #000;
+    --text-muted: #000;
 }
 
 /* Layout */
@@ -14,6 +18,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    color: var(--text-main);
 }
 
 /* FORM SECTION */
@@ -22,19 +27,18 @@
     border-radius: 16px;
     padding: 1.5rem 1.25rem 1.75rem;
     box-shadow: var(--shadow-soft);
-    color: #000;
+    color: var(--text-main);
 }
 
 .join-form-section h2 {
     margin: 0 0 1rem;
     font-size: 1.25rem;
-    color: #000;
+    color: var(--text-main);
 }
 
 #join-form {
     display: grid;
     gap: 0.9rem;
-    color: #000;
 }
 
 #join-form label {
@@ -43,7 +47,7 @@
     gap: 0.35rem;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #000;
+    color: var(--text-main);
 }
 
 #join-form input[type="text"],
@@ -56,7 +60,7 @@
     border: 1px solid var(--border-soft);
     font-size: 0.95rem;
     font-family: inherit;
-    color: #000;
+    color: var(--text-main);
     background: #ffffff;
 }
 
@@ -96,7 +100,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
-    color: #000;
 }
 
 .membership-cards .card {
@@ -108,19 +111,17 @@
     opacity: 0;
     transform: translateY(12px);
     animation: cardFadeUp 0.7s ease-out forwards;
-    color: #000;
+    color: var(--text-main);
 }
 
 .membership-cards h3 {
     margin: 0 0 0.35rem;
     font-size: 1.05rem;
-    color: #000;
 }
 
 .membership-cards p {
     margin: 0 0 0.75rem;
     font-size: 0.9rem;
-    color: #000;
 }
 
 .info-btn {
@@ -168,20 +169,18 @@
     border-radius: 18px;
     padding: 1.5rem 1.75rem 1.25rem;
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
-    color: #000;
+    color: var(--text-main);
 }
 
 .modal-content h3 {
     margin: 0 0 0.75rem;
     font-size: 1.1rem;
-    color: #000;
 }
 
 .modal-content ul {
     margin: 0 0 1rem 1.1rem;
     padding: 0;
     font-size: 0.95rem;
-    color: #000;
 }
 
 .modal-content li+li {
@@ -199,7 +198,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    color: #000;
+    color: var(--text-main);
 }
 
 .close-modal:hover {
