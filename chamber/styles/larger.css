@@ -39,3 +39,23 @@
         align-items: flex-start;
     }
 }
+
+@media (min-width: 768px) {
+    .join-layout {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .membership-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .join-layout {
+        grid-template-columns: 3fr 2fr;
+        gap: 2.5rem;
+    }
+}

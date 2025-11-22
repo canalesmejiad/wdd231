@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Canales">
+    <meta name="description" content="Apply to join the Vancouver Chamber of Commerce. Choose a membership level and submit your business information.">
+    <title>Join | Vancouver Chamber</title>
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <link rel="stylesheet" href="./styles/join.css">
+</head>
+
+<body>
+    
+    <header class="site-header">
+        <img src="images/logo.jpg" alt="Vancouver Chamber logo" class="logo">
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="./index.html">Home</a>
+            <a href="./discover.html">Discover</a>
+            <a href="./directory.html">Directory</a>
+            <a href="./join.html" class="active" aria-current="page">Join</a>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <h1 class="page-title">Join the Vancouver Chamber</h1>
+
+        <div class="join-layout">
+
+            <!-- FORM -->
+            <section class="join-form-section">
+                <h2>Membership Application</h2>
+
+                <form method="get" action="thankyou.html" id="join-form">
+
+                    <label>
+                        First Name
+                        <input type="text" name="first" required autocomplete="given-name" title="Enter your first name">
+                    </label>
+
+                    <label>
+                        Last Name
+                        <input type="text" name="last" required autocomplete="family-name" title="Enter your last name">
+                    </label>
+
+                    <label>
+                        Organizational Title
+                        <input type="text" name="org-title" autocomplete="organization-title"
+                            pattern="[A-Za-z\s\-]{7,}"
+                            title="Minimum 7 characters. Letters, spaces, and hyphens only.">
+                    </label>
+
+                    <label>
+                        Email
+                        <input type="email" name="email" required autocomplete="email" placeholder="example@email.com"
+                            title="Enter a valid email">
+                    </label>
+
+                    <label>
+                        Mobile Phone
+                        <input type="tel" name="phone" required autocomplete="tel" title="Enter your mobile number">
+                    </label>
+
+                    <label>
+                        Business / Organization Name
+                        <input type="text" name="organization" required autocomplete="organization"
+                            title="Enter your business name">
+                    </label>
+
+                    <label>
+                        Membership Level
+                        <select name="membership" required title="Select membership level">
+                            <option value="" disabled selected>Select one</option>
+                            <option value="np">NP Membership (Non-profit)</option>
+                            <option value="bronze">Bronze Membership</option>
+                            <option value="silver">Silver Membership</option>
+                            <option value="gold">Gold Membership</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Business Description
+                        <textarea name="description" title="Describe your organization"></textarea>
+                    </label>
+
+                    <!-- Timestamp -->
+                    <input type="hidden" id="timestamp" name="timestamp">
+
+                    <input type="submit" value="Submit Application" class="submit-btn">
+                </form>
+            </section>
+
+            <!-- MEMBERSHIP CARDS -->
+            <aside class="membership-cards">
+
+                <div class="card" data-modal="np-modal">
+                    <h3>NP Membership</h3>
+                    <p>Perfect for non-profit organizations.</p>
+                    <button class="info-btn" data-modal="np-modal">View Benefits</button>
+                </div>
+
+                <div class="card" data-modal="bronze-modal">
+                    <h3>Bronze Membership</h3>
+                    <p>Entry-level membership with great perks.</p>
+                    <button class="info-btn" data-modal="bronze-modal">View Benefits</button>
+                </div>
+
+                <div class="card" data-modal="silver-modal">
+                    <h3>Silver Membership</h3>
+                    <p>Grow your business visibility and reach.</p>
+                    <button class="info-btn" data-modal="silver-modal">View Benefits</button>
+                </div>
+
+                <div class="card" data-modal="gold-modal">
+                    <h3>Gold Membership</h3>
+                    <p>Top-tier benefits for maximum exposure.</p>
+                    <button class="info-btn" data-modal="gold-modal">View Benefits</button>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- MODALS -->
+        <div class="modal" id="np-modal">
+            <div class="modal-content">
+                <h3>NP Membership Benefits</h3>
+                <ul>
+                    <li>Free membership</li>
+                    <li>Community events</li>
+                    <li>Non-profit promotion</li>
+                </ul>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+        <div class="modal" id="bronze-modal">
+            <div class="modal-content">
+                <h3>Bronze Membership Benefits</h3>
+                <ul>
+                    <li>Business directory listing</li>
+                    <li>Event discounts</li>
+                    <li>Newsletter inclusion</li>
+                </ul>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+        <div class="modal" id="silver-modal">
+            <div class="modal-content">
+                <h3>Silver Membership Benefits</h3>
+                <ul>
+                    <li>All Bronze benefits</li>
+                    <li>Spotlight promotion</li>
+                    <li>Premium events access</li>
+                </ul>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+        <div class="modal" id="gold-modal">
+            <div class="modal-content">
+                <h3>Gold Membership Benefits</h3>
+                <ul>
+                    <li>All Silver benefits</li>
+                    <li>Homepage feature</li>
+                    <li>Exclusive chamber events</li>
+                </ul>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+
+            <section class="footer-block footer-brand">
+                <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
+                <address class="footer-address">
+                    123 Main Street<br>
+                    Vancouver, WA 98660<br>
+                    <a href="mailto:info@vancouverchamber.org">info@vancouverchamber.org</a><br>
+                    <a href="tel:+13605551234">(360) 555-1234</a>
+                </address>
+            </section>
+
+            <section class="footer-block footer-social">
+                <h2 class="footer-heading">Connect With Us</h2>
+                <div class="social-links">
+                    <a href="#" class="social-icon social-youtube" aria-label="YouTube"><span aria-hidden="true">▶</span></a>
+                    <a href="#" class="social-icon social-github" aria-label="GitHub">
+                        <img src="images/github.svg" alt="GitHub logo">
+                    </a>
+                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn"><span aria-hidden="true">in</span></a>
+                </div>
+            </section>
+
+            <div class="footer-block footer-meta">
+                <p>© <span id="year"></span> Vancouver Chamber of Commerce</p>
+                <p>WDD 231 Project • David Canales</p>
+                <p>Last Modified: <time id="lastmod"></time></p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="scripts/nav.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+</body>
+
+</html>

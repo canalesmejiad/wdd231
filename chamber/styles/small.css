@@ -441,3 +441,280 @@ select:focus-visible {
     filter: brightness(0) invert(1);
     display: block;
 }
+
+/* JOIN PAGE – LAYOUT GENERAL */
+
+.join-main-title {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.join-intro {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Contenedor principal: formulario + tarjetas */
+.join-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* FORMULARIO */
+
+.join-form {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.25rem 1.25rem 1.5rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.join-form fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.join-form legend {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+.join-form .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 0.9rem;
+}
+
+.join-form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.join-form input[type="text"],
+.join-form input[type="email"],
+.join-form input[type="tel"],
+.join-form select,
+.join-form textarea {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-soft);
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #ffffff;
+}
+
+.join-form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.join-form input:focus-visible,
+.join-form select:focus-visible,
+.join-form textarea:focus-visible {
+    outline: 3px solid rgba(59, 130, 246, 0.9);
+    outline-offset: 2px;
+    border-color: #1d4ed8;
+}
+
+.join-form .helper {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.join-form .submit-row {
+    margin-top: 1.2rem;
+}
+
+.join-form input[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.6rem;
+    border-radius: 999px;
+    border: 2px solid #0b3b91;
+    background: #0b3b91;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.join-form input[type="submit"]:hover {
+    background: #08265c;
+    border-color: #08265c;
+}
+
+/* TARJETAS DE MEMBRESÍA */
+
+.membership-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.membership-panel-title {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.membership-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+    box-shadow: var(--shadow-soft);
+    border-left: 4px solid var(--brand);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: membership-fade-in 0.7s ease-out forwards;
+}
+
+.membership-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.membership-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.membership-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.membership-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+}
+
+.membership-card p {
+    margin: 0 0 0.4rem;
+    font-size: 0.88rem;
+}
+
+.membership-card .membership-tagline {
+    color: var(--text-muted);
+}
+
+.membership-card .membership-level-label {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #0b3b91;
+}
+
+.membership-card .membership-cta {
+    margin-top: 0.25rem;
+}
+
+.membership-card button,
+.membership-card a.membership-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+    border-radius: 999px;
+    border: 1px solid #0b3b91;
+    background: #ffffff;
+    color: #0b3b91;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.membership-card button:hover,
+.membership-card a.membership-link:hover {
+    background: #e0ebff;
+}
+
+.modal {
+    border: none;
+    border-radius: 18px;
+    padding: 0;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.4);
+}
+
+.modal::backdrop {
+    background: rgba(15, 23, 42, 0.7);
+}
+
+.modal-inner {
+    padding: 1.25rem 1.5rem 1.2rem;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.modal-close {
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.modal-body p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.modal-body ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.modal-footer {
+    margin-top: 0.9rem;
+    text-align: right;
+}
+
+.modal-footer button {
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    border: 1px solid #0b3b91;
+    background: #0b3b91;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+
+@keyframes membership-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
