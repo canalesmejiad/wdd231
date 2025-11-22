@@ -1,12 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const lastmod = document.getElementById("lastmod");
-    const modDate = new Date(document.lastModified);
+    const btn = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".site-nav");
 
-    lastmod.textContent = modDate.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    });
+    if (btn && nav) {
+        btn.addEventListener("click", () => {
+            const open = nav.classList.toggle("open");
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
 
-    lastmod.setAttribute("datetime", modDate.toISOString());
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    const lastmodEl = document.getElementById("lastmod");
+    if (lastmodEl) {
+        const modifiedString = document.lastModified;
+        const modifiedDate = new Date(modifiedString);
+        if (!isNaN(modifiedDate.getTime())) {
+            lastmodEl.textContent = modifiedDate.toLocaleString();
+            lastmodEl.dateTime = modifiedDate.toISOString();
+        } else {
+            lastmodEl.textContent = modifiedString;
+        }
+    }
 });
