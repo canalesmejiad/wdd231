@@ -1,3 +1,12 @@
+:root {
+    --brand: #08265c;
+    --brand-soft: #dbeafe;
+    --bg-card: #ffffff;
+    --border-soft: #d1d5db;
+    --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Layout */
 .join-layout {
     max-width: 1100px;
     margin: 0 auto 2rem;
@@ -7,21 +16,25 @@
     gap: 1.5rem;
 }
 
+/* FORM SECTION */
 .join-form-section {
     background: var(--bg-card);
     border-radius: 16px;
     padding: 1.5rem 1.25rem 1.75rem;
     box-shadow: var(--shadow-soft);
+    color: #000;
 }
 
 .join-form-section h2 {
     margin: 0 0 1rem;
     font-size: 1.25rem;
+    color: #000;
 }
 
 #join-form {
     display: grid;
     gap: 0.9rem;
+    color: #000;
 }
 
 #join-form label {
@@ -30,7 +43,7 @@
     gap: 0.35rem;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--text-main);
+    color: #000;
 }
 
 #join-form input[type="text"],
@@ -43,7 +56,7 @@
     border: 1px solid var(--border-soft);
     font-size: 0.95rem;
     font-family: inherit;
-    color: var(--text-main);
+    color: #000;
     background: #ffffff;
 }
 
@@ -52,12 +65,10 @@
     resize: vertical;
 }
 
-#join-form input[type="text"]:focus,
-#join-form input[type="email"]:focus,
-#join-form input[type="tel"]:focus,
+#join-form input:focus,
 #join-form select:focus,
 #join-form textarea:focus {
-    outline: 0;
+    outline: none;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
     border-color: #2563eb;
 }
@@ -77,13 +88,15 @@
 }
 
 .submit-btn:hover {
-    background: #08265c;
+    background: #051a3f;
 }
 
+/* MEMBERSHIP CARDS */
 .membership-cards {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    color: #000;
 }
 
 .membership-cards .card {
@@ -95,33 +108,19 @@
     opacity: 0;
     transform: translateY(12px);
     animation: cardFadeUp 0.7s ease-out forwards;
-}
-
-.membership-cards .card:nth-child(1) {
-    animation-delay: 0.05s;
-}
-
-.membership-cards .card:nth-child(2) {
-    animation-delay: 0.15s;
-}
-
-.membership-cards .card:nth-child(3) {
-    animation-delay: 0.25s;
-}
-
-.membership-cards .card:nth-child(4) {
-    animation-delay: 0.35s;
+    color: #000;
 }
 
 .membership-cards h3 {
     margin: 0 0 0.35rem;
     font-size: 1.05rem;
+    color: #000;
 }
 
 .membership-cards p {
     margin: 0 0 0.75rem;
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: #000;
 }
 
 .info-btn {
@@ -142,6 +141,7 @@
     background: var(--brand-soft);
 }
 
+/* MODALS */
 .modal {
     position: fixed;
     inset: 0;
@@ -168,18 +168,20 @@
     border-radius: 18px;
     padding: 1.5rem 1.75rem 1.25rem;
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+    color: #000;
 }
 
 .modal-content h3 {
     margin: 0 0 0.75rem;
     font-size: 1.1rem;
+    color: #000;
 }
 
 .modal-content ul {
     margin: 0 0 1rem 1.1rem;
     padding: 0;
     font-size: 0.95rem;
-    color: var(--text-main);
+    color: #000;
 }
 
 .modal-content li+li {
@@ -197,18 +199,21 @@
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
+    color: #000;
 }
 
 .close-modal:hover {
     background: #e5e7eb;
 }
 
+/* GitHub icon */
 .social-github img {
     width: 22px;
     height: 22px;
     display: block;
 }
 
+/* Animation */
 @keyframes cardFadeUp {
     from {
         opacity: 0;
@@ -221,11 +226,12 @@
     }
 }
 
+/* Larger Screens */
 @media (min-width: 768px) {
     .join-layout {
-        padding: 0;
         grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
         align-items: flex-start;
+        padding: 0;
     }
 
     .join-form-section {
