@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
-    <link rel="stylesheet" href="styles/thankyou.css">
+    <link rel="stylesheet" href="./styles/join.css">
 </head>
 
 <body>
@@ -33,48 +33,26 @@
     </header>
 
     <main id="main">
-        <section class="thankyou-section">
-            <h1>Thank You for Your Application!</h1>
+        <h1 class="page-title">Thank You for Your Application</h1>
+
+        <section class="join-form-section">
+            <h2>Submission Details</h2>
             <p>We have received your membership application. A chamber representative will contact you soon.</p>
 
-            <section class="thankyou-details">
-                <h2>Application Summary</h2>
-                <dl>
-                    <div>
-                        <dt>First Name</dt>
-                        <dd id="summary-first"></dd>
-                    </div>
-                    <div>
-                        <dt>Last Name</dt>
-                        <dd id="summary-last"></dd>
-                    </div>
-                    <div>
-                        <dt>Email</dt>
-                        <dd id="summary-email"></dd>
-                    </div>
-                    <div>
-                        <dt>Mobile Phone</dt>
-                        <dd id="summary-phone"></dd>
-                    </div>
-                    <div>
-                        <dt>Business / Organization</dt>
-                        <dd id="summary-organization"></dd>
-                    </div>
-                    <div>
-                        <dt>Submitted At</dt>
-                        <dd id="summary-timestamp"></dd>
-                    </div>
-                </dl>
-            </section>
-
-            <p>
-                <a href="join.html" class="btn secondary">Submit Another Application</a>
-            </p>
+            <ul class="confirmation-list">
+                <li><strong>First Name:</strong> <span id="out-first"></span></li>
+                <li><strong>Last Name:</strong> <span id="out-last"></span></li>
+                <li><strong>Email:</strong> <span id="out-email"></span></li>
+                <li><strong>Mobile Phone:</strong> <span id="out-phone"></span></li>
+                <li><strong>Business / Organization:</strong> <span id="out-organization"></span></li>
+                <li><strong>Submitted At:</strong> <span id="out-timestamp"></span></li>
+            </ul>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-grid">
+
             <section class="footer-block footer-brand">
                 <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
                 <address class="footer-address">
@@ -105,6 +83,7 @@
                 <p>WDD 231 Project • David Canales</p>
                 <p>Last Modified: <time id="lastmod"></time></p>
             </div>
+
         </div>
     </footer>
 

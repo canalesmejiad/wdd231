@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const timestampField = document.getElementById("timestamp");
-    timestampField.value = new Date().toISOString();
+    if (timestampField) {
+        timestampField.value = new Date().toISOString();
+    }
 
     const infoButtons = document.querySelectorAll(".info-btn");
     const modals = document.querySelectorAll(".modal");
@@ -10,18 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("click", () => {
             const modalId = btn.dataset.modal;
             const modal = document.getElementById(modalId);
-            modal.classList.add("open");
+            if (modal) {
+                modal.classList.add("open");
+            }
         });
     });
 
     closeButtons.forEach(btn => {
         btn.addEventListener("click", () => {
-            btn.closest(".modal").classList.remove("open");
+            const modal = btn.closest(".modal");
+            if (modal) {
+                modal.classList.remove("open");
+            }
         });
     });
 
     modals.forEach(modal => {
-        modal.addEventListener("click", e => {
+        modal.addEventListener("click", (e) => {
             if (e.target === modal) {
                 modal.classList.remove("open");
             }
