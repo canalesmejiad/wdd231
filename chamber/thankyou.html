@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Canales">
+    <meta name="description" content="Thank you for applying to join the Vancouver Chamber of Commerce.">
+    <title>Thank You | Vancouver Chamber</title>
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <img src="images/logo.jpg" alt="Vancouver Chamber logo" class="logo">
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="./index.html">Home</a>
+            <a href="./discover.html">Discover</a>
+            <a href="./directory.html">Directory</a>
+            <a href="./join.html" class="active" aria-current="page">Join</a>
+        </nav>
+    </header>
+
+    <main id="main">
+        <h1 class="page-title">Thank You for Joining</h1>
+
+        <section class="home-section">
+            <h2>Application Received</h2>
+            <p>Thank you for submitting your membership application to the Vancouver Chamber of Commerce. Below is a
+                summary of the information you provided.</p>
+
+            <div class="thankyou-summary">
+                <div class="summary-row">
+                    <span class="summary-label">First Name:</span>
+                    <span class="summary-value" id="out-first">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Last Name:</span>
+                    <span class="summary-value" id="out-last">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Email:</span>
+                    <span class="summary-value" id="out-email">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Mobile Phone:</span>
+                    <span class="summary-value" id="out-phone">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Business / Organization:</span>
+                    <span class="summary-value" id="out-org">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Form Submitted At:</span>
+                    <span class="summary-value" id="out-timestamp">—</span>
+                </div>
+            </div>
+
+            <p>If any of this information is incorrect, please go back to the
+                <a href="join.html">join page</a> and submit the form again.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+
+            <section class="footer-block footer-brand">
+                <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
+                <address class="footer-address">
+                    123 Main Street<br>
+                    Vancouver, WA 98660<br>
+                    <a href="mailto:info@vancouverchamber.org">info@vancouverchamber.org</a><br>
+                    <a href="tel:+13605551234">(360) 555-1234</a>
+                </address>
+            </section>
+
+            <section class="footer-block footer-social">
+                <h2 class="footer-heading">Connect With Us</h2>
+                <div class="social-links">
+                    <a href="#" class="social-icon social-youtube" aria-label="YouTube">
+                        <span aria-hidden="true">▶</span>
+                    </a>
+                    <a href="#" class="social-icon social-github" aria-label="GitHub">
+                        <img src="images/github.svg" alt="GitHub logo">
+                    </a>
+                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn">
+                        <span aria-hidden="true">in</span>
+                    </a>
+                </div>
+            </section>
+
+            <div class="footer-block footer-meta">
+                <p>© <span id="year"></span> Vancouver Chamber of Commerce</p>
+                <p>WDD 231 Project • David Canales</p>
+                <p>Last Modified: <time id="lastmod"></time></p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="scripts/nav.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script>
+</body>
+
+</html>
