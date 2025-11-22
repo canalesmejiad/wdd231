@@ -1,22 +1,12 @@
-const btn = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.site-nav');
+document.addEventListener("DOMContentLoaded", () => {
+    const lastmod = document.getElementById("lastmod");
+    const modDate = new Date(document.lastModified);
 
-if (btn && nav) {
-    btn.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    lastmod.textContent = modDate.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
     });
-}
 
-const yearSpan = document.getElementById('year');
-if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-}
-
-const lastmod = document.getElementById('lastmod');
-if (lastmod) {
-    const lm = new Date(document.lastModified);
-    const formatted = lm.toISOString().split('T')[0];
-    lastmod.setAttribute("datetime", formatted);
-    lastmod.textContent = formatted;
-}
+    lastmod.setAttribute("datetime", modDate.toISOString());
+});
