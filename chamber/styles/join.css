@@ -142,8 +142,6 @@
     background: var(--brand-soft);
 }
 
-/* Modals */
-
 .modal {
     position: fixed;
     inset: 0;
@@ -184,7 +182,7 @@
     color: var(--text-main);
 }
 
-.modal-content li + li {
+.modal-content li+li {
     margin-top: 0.25rem;
 }
 
@@ -205,34 +203,23 @@
     background: #e5e7eb;
 }
 
-/* Footer GitHub icon */
-
-.social-github img {
-    width: 22px;
-    height: 22px;
-    display: block;
-}
-
-/* Animation */
-
 @keyframes cardFadeUp {
     from {
         opacity: 0;
         transform: translateY(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Larger screens */
-
 @media (min-width: 768px) {
     .join-layout {
-        padding: 0;
         grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
         align-items: flex-start;
+        padding: 0;
     }
 
     .join-form-section {
