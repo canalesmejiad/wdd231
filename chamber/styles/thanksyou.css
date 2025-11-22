@@ -1,0 +1,65 @@
+.thankyou-section {
+    max-width: 720px;
+    margin: 2rem auto 3rem;
+    padding: 1.5rem 1.25rem 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08),
+        0 4px 10px rgba(15, 23, 42, 0.06);
+}
+
+.thankyou-section h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.thankyou-section>p {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.thankyou-details h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.thankyou-details dl {
+    margin: 0 0 1.5rem;
+}
+
+.thankyou-details dl>div {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.thankyou-details dt {
+    font-weight: 600;
+    color: #111827;
+}
+
+.thankyou-details dd {
+    margin: 0;
+    color: #374151;
+}
+
+.thankyou-section .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid #0b3b91;
+    text-decoration: none;
+    cursor: pointer;
+    background: #ffffff;
+    color: #0b3b91;
+}
+
+.thankyou-section .btn:hover {
+    background: #e0ebff;
+}

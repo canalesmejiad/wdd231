@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
+    <link rel="stylesheet" href="styles/thankyou.css">
 </head>
 
 <body>
@@ -32,49 +33,48 @@
     </header>
 
     <main id="main">
-        <h1 class="page-title">Thank You for Joining</h1>
+        <section class="thankyou-section">
+            <h1>Thank You for Your Application!</h1>
+            <p>We have received your membership application. A chamber representative will contact you soon.</p>
 
-        <section class="home-section">
-            <h2>Application Received</h2>
-            <p>Thank you for submitting your membership application to the Vancouver Chamber of Commerce. Below is a
-                summary of the information you provided.</p>
+            <section class="thankyou-details">
+                <h2>Application Summary</h2>
+                <dl>
+                    <div>
+                        <dt>First Name</dt>
+                        <dd id="summary-first"></dd>
+                    </div>
+                    <div>
+                        <dt>Last Name</dt>
+                        <dd id="summary-last"></dd>
+                    </div>
+                    <div>
+                        <dt>Email</dt>
+                        <dd id="summary-email"></dd>
+                    </div>
+                    <div>
+                        <dt>Mobile Phone</dt>
+                        <dd id="summary-phone"></dd>
+                    </div>
+                    <div>
+                        <dt>Business / Organization</dt>
+                        <dd id="summary-organization"></dd>
+                    </div>
+                    <div>
+                        <dt>Submitted At</dt>
+                        <dd id="summary-timestamp"></dd>
+                    </div>
+                </dl>
+            </section>
 
-            <div class="thankyou-summary">
-                <div class="summary-row">
-                    <span class="summary-label">First Name:</span>
-                    <span class="summary-value" id="out-first">—</span>
-                </div>
-                <div class="summary-row">
-                    <span class="summary-label">Last Name:</span>
-                    <span class="summary-value" id="out-last">—</span>
-                </div>
-                <div class="summary-row">
-                    <span class="summary-label">Email:</span>
-                    <span class="summary-value" id="out-email">—</span>
-                </div>
-                <div class="summary-row">
-                    <span class="summary-label">Mobile Phone:</span>
-                    <span class="summary-value" id="out-phone">—</span>
-                </div>
-                <div class="summary-row">
-                    <span class="summary-label">Business / Organization:</span>
-                    <span class="summary-value" id="out-org">—</span>
-                </div>
-                <div class="summary-row">
-                    <span class="summary-label">Form Submitted At:</span>
-                    <span class="summary-value" id="out-timestamp">—</span>
-                </div>
-            </div>
-
-            <p>If any of this information is incorrect, please go back to the
-                <a href="join.html">join page</a> and submit the form again.
+            <p>
+                <a href="join.html" class="btn secondary">Submit Another Application</a>
             </p>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="footer-grid">
-
             <section class="footer-block footer-brand">
                 <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
                 <address class="footer-address">
@@ -105,7 +105,6 @@
                 <p>WDD 231 Project • David Canales</p>
                 <p>Last Modified: <time id="lastmod"></time></p>
             </div>
-
         </div>
     </footer>
 
