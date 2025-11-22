@@ -1,61 +1,39 @@
-function initTimestamp() {
-    const ts = document.getElementById("timestamp");
-    if (ts) {
-        const now = new Date();
-        ts.value = now.toISOString();
+const timestampField = document.getElementById("timestamp");
+timestampField.value = new Date().toISOString();
+
+const infoButtons = document.querySelectorAll(".info-btn");
+const modals = document.querySelectorAll(".modal");
+const closeButtons = document.querySelectorAll(".close-modal");
+
+infoButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const modalId = button.dataset.modal;
+        const modal = document.getElementById(modalId);
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
+    });
+});
+
+closeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const modal = button.closest(".modal");
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+    });
+});
+
+window.addEventListener("click", e => {
+    if (e.target.classList.contains("modal")) {
+        e.target.style.display = "none";
+        e.target.setAttribute("aria-hidden", "true");
     }
-}
+});
 
-function openModalById(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.classList.add("open");
-        modal.removeAttribute("aria-hidden");
-    }
-}
-
-function closeModal(modal) {
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-}
-
-function initModals() {
-    const infoButtons = document.querySelectorAll(".info-btn");
-    const modals = document.querySelectorAll(".modal");
-    const closeButtons = document.querySelectorAll(".modal .close-modal");
-
-    infoButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const modalId = btn.dataset.modal;
-            openModalById(modalId);
-        });
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".membership-cards .card");
+    cards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add("show");
+        }, index * 200);
     });
-
-    closeButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const modal = btn.closest(".modal");
-            if (modal) {
-                closeModal(modal);
-            }
-        });
-    });
-
-    modals.forEach((modal) => {
-        modal.addEventListener("click", (event) => {
-            if (event.target === modal) {
-                closeModal(modal);
-            }
-        });
-    });
-}
-
-function main() {
-    initTimestamp();
-    initModals();
-}
-
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", main);
-} else {
-    main();
-}
+});
