@@ -203,6 +203,12 @@
     background: #e5e7eb;
 }
 
+.social-github img {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
 @keyframes cardFadeUp {
     from {
         opacity: 0;
@@ -217,9 +223,9 @@
 
 @media (min-width: 768px) {
     .join-layout {
+        padding: 0;
         grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
         align-items: flex-start;
-        padding: 0;
     }
 
     .join-form-section {
