@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Discover | Vancouver Chamber of Commerce</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tus estilos generales del chamber -->
+    <link rel="stylesheet" href="styles/base.css">
+    <!-- Si ya tienes large.css o medium.css, déjalos igual y solo pega las reglas nuevas -->
+    <!-- <link rel="stylesheet" href="styles/medium.css">
+  <link rel="stylesheet" href="styles/large.css"> -->
+</head>
+
+<body>
+    <header>
+        <!-- Usa aquí TU mismo header del sitio chamber -->
+        <div class="site-header">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo.webp" alt="Vancouver Chamber logo">
+                <span class="site-title">Vancouver Chamber of Commerce</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle navigation"></button>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html" class="active">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="discover-main">
+        <section class="visit-info">
+            <h1>Discover Vancouver</h1>
+            <p id="visit-message" class="visit-message">
+                <!-- Aquí se mostrará el mensaje de última visita con JS -->
+            </p>
+            <p class="visit-intro">
+                Explore some of the most interesting places in Vancouver, Washington.
+                These locations are great for visitors, families, and local businesses.
+            </p>
+        </section>
+
+        <section class="discover-grid" id="discover-grid" aria-live="polite">
+            <!-- Las 8 cards se insertan aquí con JavaScript -->
+        </section>
+    </main>
+
+    <footer>
+        <!-- Usa tu mismo footer actual -->
+        <p>&copy; <span id="year"></span> Vancouver Chamber of Commerce</p>
+    </footer>
+
+    <!-- Script principal de tu sitio (si ya tienes uno) -->
+    <script src="scripts/main.js" defer></script>
+    <!-- Script para esta página: IMPORTANTE type="module" -->
+    <script type="module" src="scripts/discover.js"></script>
+</body>
+
+</html>
