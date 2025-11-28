@@ -68,7 +68,7 @@ function updateVisitMessage() {
         }
     }
 
-    // Guardar la fecha actual como la última visita
+    
     localStorage.setItem(LAST_VISIT_KEY, now.toString());
 }
 
