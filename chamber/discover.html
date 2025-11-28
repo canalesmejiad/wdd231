@@ -6,63 +6,84 @@
     <title>Discover | Vancouver Chamber of Commerce</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Fuente -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-
+    <!-- CSS -->
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
 </head>
 
 <body>
-    <header>
-        <!-- COPIA AQUÍ EL MISMO HEADER/LOGO/BUTTON/NAV QUE USAS EN index.html -->
-        <div class="logo-title">
-            <img src="images/logo.webp" alt="Chamber logo">
-            <div class="site-title">
-                <h1>Vancouver Chamber of Commerce</h1>
-                <p>Connecting businesses and community</p>
-            </div>
-        </div>
+    <!-- HEADER igual al de index.html / directory.html -->
+    <header class="site-header">
+        <a href="index.html">
+            <img src="images/logo.webp" alt="Vancouver Chamber of Commerce logo" class="logo">
+        </a>
 
-        <button id="menu" aria-label="Toggle navigation"></button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
 
-        <nav>
-            <ul class="navigation">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="discover.html" class="active">Discover</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
-            </ul>
+        <nav class="site-nav" id="site-nav">
+            <a href="index.html">Home</a>
+            <a href="discover.html" class="active">Discover</a>
+            <a href="directory.html">Directory</a>
+            <a href="join.html">Join</a>
         </nav>
     </header>
 
     <main class="discover-main">
         <section class="discover-intro">
-            <h2>Discover Vancouver</h2>
-            <p id="visit-message" class="visit-message">
-                <!-- aquí sale el mensaje de visitas desde JS -->
-            </p>
+            <h1 class="page-title">Discover Vancouver</h1>
+            <p id="visit-message" class="visit-message"></p>
             <p>
-                Explore some of the parks, historic sites, and community spaces that make Vancouver, Washington
-                a great place to live, work, and do business.
+                Explore some of the parks, historic sites, and community spaces that make Vancouver,
+                Washington a great place to live, work, and do business.
             </p>
         </section>
 
         <section class="discover-grid" id="discover-grid" aria-label="Places to discover">
-            <!-- Las 8 cards se generan con JavaScript usando el JSON -->
+            <!-- Las 8 cards se agregan con JavaScript -->
         </section>
     </main>
 
-    <footer>
-        <!-- Usa el mismo footer que en las otras páginas -->
-        <p>&copy; <span id="year"></span> Vancouver Chamber of Commerce</p>
+    <!-- FOOTER igual al de tus otras páginas -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-block">
+                <h2 class="footer-heading">Vancouver Chamber of Commerce</h2>
+                <p class="footer-address">
+                    123 Main St<br>
+                    Vancouver, WA 98660<br>
+                    <a href="mailto:info@vancouverchamber.com">info@vancouverchamber.com</a>
+                </p>
+            </div>
+
+            <div class="footer-block">
+                <h2 class="footer-heading">Connect</h2>
+                <div class="social-links">
+                    <a href="#" class="social-icon social-youtube" aria-label="YouTube"><span
+                            aria-hidden="true">▶</span></a>
+                    <a href="#" class="social-icon social-twitter" aria-label="X / Twitter"><span
+                            aria-hidden="true">X</span></a>
+                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn"><span
+                            aria-hidden="true">in</span></a>
+                </div>
+            </div>
+
+            <div class="footer-block footer-meta">
+                <p>&copy; <span id="year"></span> Vancouver Chamber of Commerce</p>
+                <p>WDD 231 · Student Project</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="scripts/nav.js"></script>
-    <!-- Script específico de discover, como módulo -->
     <script type="module" src="scripts/discover.js"></script>
 </body>
 

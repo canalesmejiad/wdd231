@@ -719,7 +719,7 @@ select:focus-visible {
     }
 }
 
-/* === Discover page - small (mobile) === */
+/* ====== Discover Page - Small (mobile) ====== */
 
 .discover-main {
     padding: 1rem;
@@ -737,6 +737,8 @@ select:focus-visible {
 .discover-grid {
     display: grid;
     gap: 1rem;
+    /* 1 columna en móvil */
+    grid-template-columns: 1fr;
     grid-template-areas:
         "card1"
         "card2"
@@ -750,14 +752,41 @@ select:focus-visible {
 
 .discover-card {
     background-color: #ffffff;
-    border: 1px solid #dddddd;
     border-radius: 0.5rem;
     padding: 0.75rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-.discover-card h2 {
-    font-size: 1.1rem;
-    margin-top: 0;
+.card1 {
+    grid-area: card1;
+}
+
+.card2 {
+    grid-area: card2;
+}
+
+.card3 {
+    grid-area: card3;
+}
+
+.card4 {
+    grid-area: card4;
+}
+
+.card5 {
+    grid-area: card5;
+}
+
+.card6 {
+    grid-area: card6;
+}
+
+.card7 {
+    grid-area: card7;
+}
+
+.card8 {
+    grid-area: card8;
 }
 
 .discover-card figure {
@@ -768,37 +797,19 @@ select:focus-visible {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 0.5rem;
 }
 
-/* asignar las áreas para grid-template-areas */
-.discover-card.card1 {
-    grid-area: card1;
+.discover-card address {
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
 }
 
-.discover-card.card2 {
-    grid-area: card2;
-}
-
-.discover-card.card3 {
-    grid-area: card3;
-}
-
-.discover-card.card4 {
-    grid-area: card4;
-}
-
-.discover-card.card5 {
-    grid-area: card5;
-}
-
-.discover-card.card6 {
-    grid-area: card6;
-}
-
-.discover-card.card7 {
-    grid-area: card7;
-}
-
-.discover-card.card8 {
-    grid-area: card8;
+.discover-card button {
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
 }
