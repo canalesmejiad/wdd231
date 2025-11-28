@@ -9,11 +9,11 @@ export const places = [
         imageAlt: "View of the Vancouver Waterfront Park along the river."
     },
     {
-        name: "Fort Vancouver National Historic Site",
+        name: "Fort Vancouver",
         address: "612 E Reserve St, Vancouver, WA 98661",
         description:
             "A historic site with reconstructed buildings, gardens, and exhibits about the early history of the area.",
-        imageUrl: "images/Fort_Vancouver_National.webp",
+        imageUrl: "images/Fort_Vancouver.webp",
         imageAlt: "Historic buildings and grounds at Fort Vancouver."
     },
     {
