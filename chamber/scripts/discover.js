@@ -1,35 +1,33 @@
 // chamber/scripts/discover.js
 import { places } from "../data/discover.mjs";
 
-// =======================
-// 1. Construir las cards
-// =======================
+// ==== 1. Construir las 8 cards ====
 const grid = document.querySelector("#discover-grid");
 
-places.forEach((place) => {
+places.forEach((place, index) => {
     const card = document.createElement("article");
     card.classList.add("discover-card");
+    card.classList.add(`card${index + 1}`); // card1, card2, ... para grid-template-areas
 
     const title = document.createElement("h2");
     title.textContent = place.name;
 
     const figure = document.createElement("figure");
-
     const img = document.createElement("img");
-    img.src = place.image;
-    img.alt = place.name;
-
-    const figCaption = document.createElement("figcaption");
-    figCaption.textContent = place.name;
+    img.src = place.imageUrl;
+    img.alt = place.imageAlt;
+    img.loading = "lazy";
+    const figcaption = document.createElement("figcaption");
+    figcaption.textContent = place.name;
 
     figure.appendChild(img);
-    figure.appendChild(figCaption);
+    figure.appendChild(figcaption);
 
     const address = document.createElement("address");
     address.textContent = place.address;
 
-    const desc = document.createElement("p");
-    desc.textContent = place.description;
+    const description = document.createElement("p");
+    description.textContent = place.description;
 
     const button = document.createElement("button");
     button.type = "button";
@@ -38,44 +36,33 @@ places.forEach((place) => {
     card.appendChild(title);
     card.appendChild(figure);
     card.appendChild(address);
-    card.appendChild(desc);
+    card.appendChild(description);
     card.appendChild(button);
 
     grid.appendChild(card);
 });
 
-// ==================================================
-// 2. Mensaje de última visita usando localStorage
-// ==================================================
+// ==== 2. Mensaje de última visita con localStorage ====
 const visitMessage = document.querySelector("#visit-message");
-const LAST_VISIT_KEY = "discoverLastVisit";
-
+const key = "discoverLastVisit";
 const now = Date.now();
-const lastVisit = Number(localStorage.getItem(LAST_VISIT_KEY));
+const lastVisit = Number(window.localStorage.getItem(key));
 
 if (!lastVisit) {
-    // Primera visita
+    // primera visita
     visitMessage.textContent = "Welcome! Let us know if you have any questions.";
 } else {
-    const msDifference = now - lastVisit;
-    const daysDifference = Math.floor(msDifference / (1000 * 60 * 60 * 24));
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const daysBetween = Math.floor((now - lastVisit) / msPerDay);
 
-    if (daysDifference < 1) {
+    if (daysBetween < 1) {
         visitMessage.textContent = "Back so soon! Awesome!";
-    } else if (daysDifference === 1) {
+    } else if (daysBetween === 1) {
         visitMessage.textContent = "You last visited 1 day ago.";
     } else {
-        visitMessage.textContent = `You last visited ${daysDifference} days ago.`;
+        visitMessage.textContent = `You last visited ${daysBetween} days ago.`;
     }
 }
 
-// Guardar la fecha actual para la próxima visita
-localStorage.setItem(LAST_VISIT_KEY, now);
-
-// ===============================
-// 3. Año actual en el footer (op)
-// ===============================
-const yearSpan = document.querySelector("#year");
-if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-}
+// guardar la fecha actual para la próxima visita
+window.localStorage.setItem(key, now);

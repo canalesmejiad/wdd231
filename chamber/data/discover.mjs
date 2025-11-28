@@ -1,52 +1,67 @@
 // chamber/data/discover.mjs
-
 export const places = [
     {
         name: "Vancouver Waterfront Park",
         address: "695 Waterfront Way, Vancouver, WA 98660",
-        image: "images/waterfront-park.webp",
-        description: "A beautiful riverside park with walking paths, restaurants, and views of the Columbia River."
+        description:
+            "A popular riverside area with walking paths, restaurants, and great views of the Columbia River.",
+        imageUrl: "images/waterf",
+        imageAlt: "View of the Vancouver Waterfront Park along the river."
     },
     {
         name: "Fort Vancouver National Historic Site",
-        address: "1501 E Evergreen Blvd, Vancouver, WA 98661",
-        image: "images/fort-vancouver.webp",
-        description: "A historic fort and cultural site that shares the story of early settlement in the Pacific Northwest."
+        address: "612 E Reserve St, Vancouver, WA 98661",
+        description:
+            "A historic site with reconstructed buildings, gardens, and exhibits about the early history of the area.",
+        imageUrl: "images/fort-vancouver.webp",
+        imageAlt: "Historic buildings and grounds at Fort Vancouver."
     },
     {
-        name: "Esther Short Park & Playground",
+        name: "Esther Short Park",
         address: "605 Esther St, Vancouver, WA 98660",
-        image: "images/esther-short-park.webp",
-        description: "One of the oldest public squares in Washington with a playground, fountain, and community events."
+        description:
+            "One of the oldest public squares in the West, used for community events, markets, and concerts.",
+        imageUrl: "images/esther-short-park.webp",
+        imageAlt: "Clock tower and lawn at Esther Short Park."
     },
     {
         name: "Vancouver Farmers Market",
-        address: "8th & Esther St, Vancouver, WA 98660",
-        image: "images/farmers-market.webp",
-        description: "A seasonal market featuring local produce, crafts, food vendors, and live music on weekends."
+        address: "W 8th & Esther St, Vancouver, WA 98660",
+        description:
+            "A seasonal market offering local produce, crafts, food vendors, and live music.",
+        imageUrl: "images/farmers-market.webp",
+        imageAlt: "Vendors and visitors at the Vancouver Farmers Market."
     },
     {
-        name: "Pearson Air Museum",
-        address: "1115 E 5th St, Vancouver, WA 98661",
-        image: "images/pearson-air-museum.webp",
-        description: "An aviation museum showcasing historic aircraft and the story of one of the oldest operating airfields."
+        name: "Columbia Tech Center Park",
+        address: "17701 SE Mill Plain Blvd, Vancouver, WA 98683",
+        description:
+            "A modern park with a large pond, walking paths, and seasonal events and concerts.",
+        imageUrl: "images/ctc-park.webp",
+        imageAlt: "Pond and walking paths at Columbia Tech Center Park."
     },
     {
-        name: "Vancouver Lake Regional Park",
-        address: "6801 NW Lower River Rd, Vancouver, WA 98660",
-        image: "images/vancouver-lake.webp",
-        description: "A lakeside park popular for picnics, kayaking, and bird watching with views of the surrounding mountains."
+        name: "Vancouver Community Library",
+        address: "901 C St, Vancouver, WA 98660",
+        description:
+            "A large public library with study spaces, technology, and programs for all ages.",
+        imageUrl: "images/library.webp",
+        imageAlt: "Exterior of the Vancouver Community Library building."
     },
     {
-        name: "Officers Row",
-        address: "1301 Evergreen Blvd, Vancouver, WA 98661",
-        image: "images/officers-row.webp",
-        description: "A historic tree-lined street with restored Victorian homes once used by U.S. Army officers."
+        name: "Wintler Community Park",
+        address: "6400 SE Beach Dr, Vancouver, WA 98661",
+        description:
+            "A small sandy beach park on the Columbia River, popular for picnics and river views.",
+        imageUrl: "images/wintler-park.webp",
+        imageAlt: "Sandy riverside area at Wintler Community Park."
     },
     {
-        name: "Downtown Vancouver Historic District",
-        address: "Main St, Vancouver, WA 98660",
-        image: "images/downtown-vancouver.webp",
-        description: "A walkable area with local shops, restaurants, public art, and renovated historic buildings."
+        name: "Leverich Park",
+        address: "4209 NE Leverich Park Way, Vancouver, WA 98663",
+        description:
+            "A wooded park with walking paths, disc golf, and open green space for recreation.",
+        imageUrl: "images/leverich-park.webp",
+        imageAlt: "Trees and open space at Leverich Park."
     }
 ];
