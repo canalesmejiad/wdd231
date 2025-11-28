@@ -5,7 +5,7 @@ export const places = [
         address: "695 Waterfront Way, Vancouver, WA 98660",
         description:
             "A popular riverside area with walking paths, restaurants, and great views of the Columbia River.",
-        imageUrl: "images/waterf",
+        imageUrl: "images/Vancouver_Waterfront_Park.webp",
         imageAlt: "View of the Vancouver Waterfront Park along the river."
     },
     {
