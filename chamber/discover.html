@@ -6,10 +6,16 @@
     <title>Discover | Vancouver Chamber of Commerce</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Mejora SEO -->
+    <meta name="description"
+        content="Discover parks, historic sites, and community spaces in Vancouver, Washington. Learn why Vancouver is a great place to live, work, and do business with the Vancouver Chamber of Commerce.">
+
+    <!-- Google Fonts (ya con display=swap para rendimiento) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
+    <!-- CSS principal -->
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
@@ -17,6 +23,7 @@
 
 <body>
 
+    <!-- HEADER (igual estilo que index.html) -->
     <header class="site-header">
         <a href="index.html">
             <img src="images/logo.webp" alt="Vancouver Chamber of Commerce logo" class="logo">
@@ -34,22 +41,28 @@
         </nav>
     </header>
 
+    <!-- MAIN -->
     <main class="discover-main">
+        <!-- Intro + mensaje de visitas -->
         <section class="discover-intro">
             <h1 class="page-title">Discover Vancouver</h1>
+
+            <!-- Mensaje de visitas con localStorage -->
             <p id="visit-message" class="visit-message"></p>
+
             <p>
                 Explore some of the parks, historic sites, and community spaces that make Vancouver,
                 Washington a great place to live, work, and do business.
             </p>
         </section>
 
+        <!-- GRID DE CARDS: se llena con scripts/discover.js -->
         <section class="discover-grid" id="discover-grid" aria-label="Places to discover">
-
+            <!-- Las 8 tarjetas se agregan dinámicamente desde discover.mjs -->
         </section>
     </main>
 
-
+    <!-- FOOTER (igual estilo que otras páginas) -->
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-block">
@@ -64,12 +77,15 @@
             <div class="footer-block">
                 <h2 class="footer-heading">Connect With Us</h2>
                 <div class="social-links">
-                    <a href="#" class="social-icon social-youtube" aria-label="YouTube"><span
-                            aria-hidden="true">▶</span></a>
-                    <a href="#" class="social-icon social-twitter" aria-label="X / Twitter"><span
-                            aria-hidden="true">X</span></a>
-                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn"><span
-                            aria-hidden="true">in</span></a>
+                    <a href="#" class="social-icon social-youtube" aria-label="YouTube">
+                        <span aria-hidden="true">▶</span>
+                    </a>
+                    <a href="#" class="social-icon social-twitter" aria-label="X / Twitter">
+                        <span aria-hidden="true">X</span>
+                    </a>
+                    <a href="#" class="social-icon social-linkedin" aria-label="LinkedIn">
+                        <span aria-hidden="true">in</span>
+                    </a>
                 </div>
             </div>
 
@@ -80,8 +96,11 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="scripts/nav.js"></script>
+    <!-- SCRIPTS -->
+    <!-- nav.js en diferido para no bloquear el render -->
+    <script src="scripts/nav.js" defer></script>
+
+    <!-- discover.js como módulo (ya se carga en defer automáticamente) -->
     <script type="module" src="scripts/discover.js"></script>
 </body>
 
