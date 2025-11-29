@@ -41,13 +41,13 @@
         </nav>
     </header>
 
-    <!-- MAIN -->
+    
     <main class="discover-main">
-        <!-- Intro + mensaje de visitas -->
+        
         <section class="discover-intro">
             <h1 class="page-title">Discover Vancouver</h1>
 
-            <!-- Mensaje de visitas con localStorage -->
+            
             <p id="visit-message" class="visit-message"></p>
 
             <p>
@@ -56,13 +56,12 @@
             </p>
         </section>
 
-        <!-- GRID DE CARDS: se llena con scripts/discover.js -->
+      
         <section class="discover-grid" id="discover-grid" aria-label="Places to discover">
-            <!-- Las 8 tarjetas se agregan dinámicamente desde discover.mjs -->
+            
         </section>
     </main>
 
-    <!-- FOOTER (igual estilo que otras páginas) -->
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-block">
@@ -96,11 +95,8 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
-    <!-- nav.js en diferido para no bloquear el render -->
     <script src="scripts/nav.js" defer></script>
 
-    <!-- discover.js como módulo (ya se carga en defer automáticamente) -->
     <script type="module" src="scripts/discover.js"></script>
 </body>
 
