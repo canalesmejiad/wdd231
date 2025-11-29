@@ -1,4 +1,3 @@
-// chamber/scripts/discover.js
 
 const grid = document.querySelector("#discover-grid");
 const visitMessage = document.querySelector("#visit-message");
@@ -9,6 +8,8 @@ async function loadPlaces() {
         const response = await fetch("data/discover.json");
         const places = await response.json();
 
+        const fragment = document.createDocumentFragment();
+
         places.forEach((place, index) => {
             const card = document.createElement("article");
             card.classList.add("discover-card", `card${index + 1}`);
@@ -17,10 +18,14 @@ async function loadPlaces() {
             title.textContent = place.name;
 
             const figure = document.createElement("figure");
+
             const img = document.createElement("img");
             img.src = place.imageUrl;
             img.alt = place.imageAlt;
             img.loading = "lazy";
+            img.decoding = "async";
+            img.width = 400;
+            img.height = 260;
 
             const figcaption = document.createElement("figcaption");
             figcaption.textContent = place.name;
@@ -30,6 +35,7 @@ async function loadPlaces() {
 
             const address = document.createElement("address");
             address.textContent = place.address;
+            address.setAttribute("aria-label", `Address: ${place.address}`);
 
             const desc = document.createElement("p");
             desc.textContent = place.description;
@@ -44,10 +50,12 @@ async function loadPlaces() {
             card.appendChild(desc);
             card.appendChild(button);
 
-            grid.appendChild(card);
+            fragment.appendChild(card);
         });
+
+        grid.appendChild(fragment);
     } catch (error) {
-        console.error("Error loading places:", error);
+        console.error("Error loading discover places:", error);
     }
 }
 
