@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DC Electric – Electrical Services in Vancouver, WA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Explore residential and small commercial electrical services offered by DC Electric in Vancouver, Washington.">
+    <meta name="author" content="David Canales">
+
+    <meta property="og:title" content="DC Electric – Services">
+    <meta property="og:description"
+        content="View detailed electrical services provided by DC Electric in Vancouver, WA.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://canalesmejiad.github.io/wdd231/final/services.html">
+    <meta property="og:image" content="https://canalesmejiad.github.io/wdd231/final/images/preview.webp">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/large.css" media="screen and (min-width: 768px)">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="branding">
+            <div class="logo-mark" aria-hidden="true">⚡</div>
+            <div class="branding-text">
+                <span class="brand-name">DC Electric</span>
+                <span class="brand-tagline">Reliable Electrical Services</span>
+            </div>
+        </div>
+
+        <button id="menu-toggle" class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="primary-nav">
+            ☰
+        </button>
+
+        <nav id="primary-nav" class="site-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active" aria-current="page">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1>Our Electrical Services</h1>
+            <p class="section-intro">
+                DC Electric offers safe, professional electrical work for homes and small businesses in Vancouver,
+                Washington.
+            </p>
+
+            <div class="services-toolbar">
+                <label for="service-filter">Filter by category:</label>
+                <select id="service-filter" name="service-filter">
+                    <option value="all">All</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Commercial">Commercial</option>
+                </select>
+
+                <div class="view-toggle">
+                    <button id="view-grid" type="button">Grid View</button>
+                    <button id="view-list" type="button">List View</button>
+                </div>
+            </div>
+
+            <div id="services-container" class="card-grid"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="current-year"></span> DC Electric · Vancouver, Washington</p>
+        <p>
+            <a href="attributions.html">Resource Attributions</a> |
+            <a href="https://example.com/your-video-link" target="_blank" rel="noopener">Project Video Demo</a>
+        </p>
+    </footer>
+
+    <div id="service-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"
+        aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close" type="button" aria-label="Close details">✕</button>
+            <h2 id="modal-title"></h2>
+            <p id="modal-category"></p>
+            <p id="modal-price"></p>
+            <p id="modal-duration"></p>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script type="module" src="scripts/main.js"></script>
+</body>
+
+</html>

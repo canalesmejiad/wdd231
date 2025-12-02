@@ -1,0 +1,124 @@
+{
+    "services": [
+        {
+            "id": 1,
+            "name": "Outlet Replacement",
+            "category": "Residential",
+            "price": "$85",
+            "duration": "1–2 hours",
+            "description": "Replace damaged or unsafe outlets to restore safe power in your home."
+        },
+        {
+            "id": 2,
+            "name": "Light Switch Repair",
+            "category": "Residential",
+            "price": "$90",
+            "duration": "1–2 hours",
+            "description": "Fix flickering or non-responsive light switches and improve safety."
+        },
+        {
+            "id": 3,
+            "name": "Ceiling Fan Installation",
+            "category": "Residential",
+            "price": "$180",
+            "duration": "2–3 hours",
+            "description": "Install new ceiling fans with proper support and safe wiring."
+        },
+        {
+            "id": 4,
+            "name": "Interior Lighting Upgrade",
+            "category": "Residential",
+            "price": "From $250",
+            "duration": "Half day",
+            "description": "Upgrade to modern, energy-efficient interior lighting for your home."
+        },
+        {
+            "id": 5,
+            "name": "Exterior Security Lighting",
+            "category": "Residential",
+            "price": "From $220",
+            "duration": "Half day",
+            "description": "Install motion or dusk-to-dawn lighting to improve exterior safety."
+        },
+        {
+            "id": 6,
+            "name": "GFCI Outlet Installation",
+            "category": "Residential",
+            "price": "$120 per location",
+            "duration": "1–2 hours",
+            "description": "Install ground fault outlets in kitchens, bathrooms, and other wet areas."
+        },
+        {
+            "id": 7,
+            "name": "Electrical Panel Inspection",
+            "category": "Residential",
+            "price": "$140",
+            "duration": "1–2 hours",
+            "description": "Inspect your electrical panel and connections for safety and code issues."
+        },
+        {
+            "id": 8,
+            "name": "Panel Upgrade",
+            "category": "Residential",
+            "price": "From $1,200",
+            "duration": "Full day",
+            "description": "Upgrade older panels to safely handle modern electrical loads."
+        },
+        {
+            "id": 9,
+            "name": "Dedicated Circuit Installation",
+            "category": "Residential",
+            "price": "From $260",
+            "duration": "Half day",
+            "description": "Add dedicated circuits for appliances like dryers, ovens, or EV chargers."
+        },
+        {
+            "id": 10,
+            "name": "Small Business Lighting",
+            "category": "Commercial",
+            "price": "From $300",
+            "duration": "Half day",
+            "description": "Install or upgrade lighting for offices, shops, and small commercial spaces."
+        },
+        {
+            "id": 11,
+            "name": "Tenant Improvement Wiring",
+            "category": "Commercial",
+            "price": "Custom quote",
+            "duration": "Varies",
+            "description": "Add or relocate circuits and outlets for small tenant improvement projects."
+        },
+        {
+            "id": 12,
+            "name": "Service Call – Troubleshooting",
+            "category": "Commercial",
+            "price": "$190 first hour",
+            "duration": "1–2 hours",
+            "description": "Troubleshoot electrical issues affecting equipment, lighting, or power."
+        },
+        {
+            "id": 13,
+            "name": "Emergency Power Solutions",
+            "category": "Commercial",
+            "price": "Custom quote",
+            "duration": "Varies",
+            "description": "Recommend and install backup power options for critical circuits."
+        },
+        {
+            "id": 14,
+            "name": "Code Compliance Corrections",
+            "category": "Commercial",
+            "price": "Custom quote",
+            "duration": "Varies",
+            "description": "Correct electrical issues identified during inspections or remodels."
+        },
+        {
+            "id": 15,
+            "name": "Safety and Maintenance Check",
+            "category": "Commercial",
+            "price": "From $260",
+            "duration": "2–4 hours",
+            "description": "Inspect panels, lighting, and wiring to reduce downtime and safety risks."
+        }
+    ]
+}
