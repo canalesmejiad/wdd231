@@ -25,6 +25,10 @@
     margin: 0;
 }
 
+.site-nav a {
+    padding: 0;
+}
+
 .hero {
     flex-direction: row;
     align-items: center;
@@ -41,4 +45,12 @@
 .card-grid,
 .feature-grid {
     grid-template-columns: repeat(3, 1fr);
+}
+
+.services-toolbar {
+    align-items: center;
+}
+
+#services-container.list-view {
+    display: block;
 }
