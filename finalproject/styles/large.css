@@ -1,0 +1,44 @@
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.site-nav {
+    position: static;
+    display: block;
+    background-color: transparent;
+}
+
+.site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+}
+
+.site-nav li {
+    margin: 0;
+}
+
+.hero {
+    flex-direction: row;
+    align-items: center;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-image-wrapper {
+    flex: 1;
+}
+
+.card-grid,
+.feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
