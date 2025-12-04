@@ -6,23 +6,15 @@
     <title>DC Electric - Site Plan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Typography: solo 1 fuente para mantenerlo simple -->
+    <!-- Typography -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 
     <style>
         :root {
             --primary-color: #0B3C5D;
-            /* azul oscuro para encabezados */
             --accent-color: #FFC107;
-            /* amarillo para detalles */
             --bg-color: #F5F5F5;
-            /* gris claro para fondo */
             --text-color: #222222;
-            /* texto principal */
-        }
-
-        * {
-            box-sizing: border-box;
         }
 
         body {
@@ -30,7 +22,6 @@
             font-family: "Roboto", Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.5;
         }
 
         header {
@@ -40,39 +31,23 @@
             text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 1.6rem;
-        }
-
         main {
             max-width: 900px;
-            margin: 1rem auto 2rem;
+            margin: 1rem auto;
             padding: 0 1rem;
         }
 
         section {
             background-color: white;
             padding: 1rem;
-            margin-bottom: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #ddd;
             border-radius: 6px;
-            border: 1px solid #dddddd;
         }
 
         h2 {
             margin-top: 0;
             color: var(--primary-color);
-            font-size: 1.3rem;
-        }
-
-        h3 {
-            margin-bottom: 0.3rem;
-            font-size: 1rem;
-            color: var(--primary-color);
-        }
-
-        ul {
-            padding-left: 1.2rem;
         }
 
         .color-example {
@@ -80,8 +55,7 @@
             width: 60px;
             height: 25px;
             border-radius: 4px;
-            border: 1px solid #cccccc;
-            margin-right: 0.5rem;
+            border: 1px solid #ccc;
             vertical-align: middle;
         }
 
@@ -97,91 +71,119 @@
             background-color: var(--bg-color);
         }
 
+        pre.wireframe {
+            background: #fafafa;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+            font-size: 0.85rem;
+        }
+
         footer {
             text-align: center;
-            font-size: 0.85rem;
             padding: 1rem;
             background-color: var(--primary-color);
             color: white;
-        }
-
-        footer a {
-            color: var(--accent-color);
+            margin-top: 2rem;
         }
     </style>
 </head>
 
 <body>
+
     <header>
-        <h1>DC Electric - Individual Project Site Plan</h1>
-        <p>WDD 231 · Site Plan</p>
+        <h1>DC Electric – Individual Project Site Plan</h1>
+        <p>WDD 231 • Site Plan</p>
     </header>
 
     <main>
+
         <!-- Site Name -->
-        <section id="site-name">
+        <section>
             <h2>Site Name</h2>
-            <p><strong>Proposed Site Name:</strong> DC Electric - Reliable Electrical Services</p>
-            <p>
-                This name represents a small electrical company that offers professional and safe
-                electrical services for homes and small businesses in Vancouver, Washington.
-            </p>
-            <p><strong>Example domain (not required to be real):</strong> dcelectricvancouver.com</p>
+            <p><strong>Proposed Site Name:</strong> DC Electric – Reliable Electrical Services</p>
+            <p>This reflects a small electrical company offering safe and professional electrical services in Vancouver,
+                Washington.</p>
         </section>
 
-        <!-- Site Purpose -->
-        <section id="site-purpose">
+        <!-- Purpose -->
+        <section>
             <h2>Site Purpose</h2>
-            <p>
-                The purpose of this website is to show basic information about DC Electric, including:
-            </p>
+            <p>The website will:</p>
             <ul>
-                <li>Main electrical services (residential and small commercial).</li>
-                <li>Service area in Vancouver, WA.</li>
-                <li>Contact information and a simple form to request a quote.</li>
-                <li>Short safety tips for homeowners.</li>
+                <li>Show main residential and small commercial electrical services.</li>
+                <li>Display the service area in Vancouver, WA.</li>
+                <li>Provide contact information and a quote form.</li>
+                <li>Share basic electrical safety tips.</li>
             </ul>
         </section>
 
         <!-- Scenarios -->
-        <section id="scenarios">
+        <section>
             <h2>Scenarios</h2>
-            <p>Examples of questions that visitors might have when they visit the site:</p>
             <ul>
-                <li>
-                    <strong>Scenario 1:</strong> “My house has some outlets that don’t work.
-                    How can I contact DC Electric to schedule a visit?”
-                </li>
-                <li>
-                    <strong>Scenario 2:</strong> “Does DC Electric install new lights and
-                    outlets for a small home remodel?”
-                </li>
-                <li>
-                    <strong>Scenario 3:</strong> “What areas of Vancouver, WA does DC Electric serve?”
-                </li>
+                <li><strong>Scenario 1:</strong> “How do I contact DC Electric to schedule a repair?”</li>
+                <li><strong>Scenario 2:</strong> “Does DC Electric install lighting for remodels?”</li>
+                <li><strong>Scenario 3:</strong> “What areas of Vancouver, WA are included?”</li>
             </ul>
         </section>
 
         <!-- Color Scheme -->
-        <section id="color-scheme">
+        <section>
             <h2>Color Scheme</h2>
-            <p>
-                The site will use a simple color scheme to keep it clean and easy to read.
-            </p>
-
             <h3>Primary Color</h3>
             <div class="color-example primary-box"></div>
-            <p>
-                <strong>Hex:</strong> #0B3C5D<br>
-                Used for: headings, header background, and some borders.
-            </p>
+            <p><strong>Hex:</strong> #0B3C5D</p>
 
             <h3>Accent Color</h3>
             <div class="color-example accent-box"></div>
-            <p>
-                <strong>Hex:</strong> #FFC107<br>
-                Used for: buttons, important links, and small highlights.
-            </p>
+            <p><strong>Hex:</strong> #FFC107</p>
 
             <h3>Background Color</h3>
             <div class="color-example bg-box"></div>
+            <p><strong>Hex:</strong> #F5F5F5</p>
+        </section>
+
+        <!-- Wireframes -->
+        <section>
+            <h2>Wireframes</h2>
+            <p>Below are the required wireframes for mobile and desktop/larger screens.</p>
+
+            <h3>Mobile Wireframe</h3>
+            <pre class="wireframe">
+ ___________________________________
+|               Header              |
+|___________________________________|
+|            Hero Image             |
+|___________________________________|
+|        Services Section           |
+|___________________________________|
+|         Contact Button            |
+|___________________________________|
+|               Footer              |
+|___________________________________|
+            </pre>
+
+            <h3>Desktop Wireframe</h3>
+            <pre class="wireframe">
+ ________________________________________________________
+|                        Header                          |
+|________________________________________________________|
+|        Hero Image (full width)                         |
+|________________________________________________________|
+| Services (3 columns) | Service Area | Contact Button   |
+|________________________________________________________|
+|                          Footer                         |
+|________________________________________________________|
+            </pre>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>DC Electric • WDD 231</p>
+    </footer>
+
+</body>
+
+</html>
